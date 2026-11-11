@@ -1,0 +1,1550 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ipx666 silk - 技术社区与资源索引</title>
+  <meta name="description" content="ipx666 silk 是一个关注技术社区动态与资源索引的页面，汇集了 Silk 框架相关项目、IPX666 版本讨论、工具链测评、部署实践与社区问答，适合开发者与开源技术爱好者浏览。">
+  <meta name="keywords" content="ipx666 silk">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231a1a2e'/%3E%3Cpath d='M8 22V10h4l4 6 4-6h4v12h-4v-6l-4 6-4-6v6z' fill='%23e2c275'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --primary-light: #2a2a4a;
+      --primary-dark: #0f0f1a;
+      --accent: #e2c275;
+      --accent-light: #f0d89a;
+      --bg: #f7f5f0;
+      --panel: #ffffff;
+      --text-primary: #1a1a2e;
+      --text-secondary: #5a5a6e;
+      --text-tertiary: #8a8a9e;
+      --border: #e0ddd5;
+      --radius-card: 12px;
+      --radius-tag: 6px;
+      --radius-banner: 16px;
+      --shadow-default: 0 2px 8px rgba(26,26,46,0.06);
+      --shadow-hover: 0 6px 20px rgba(26,26,46,0.12);
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { color: var(--accent); }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+    button { font-family: inherit; cursor: pointer; }
+
+    /* 吸顶公告条 */
+    .announcement-bar {
+      position: sticky;
+      top: 0;
+      z-index: 101;
+      background: var(--primary-dark);
+      color: var(--accent-light);
+      font-size: 13px;
+      padding: 6px 0;
+      overflow: hidden;
+    }
+    .announcement-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      white-space: nowrap;
+    }
+    .announcement-inner strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .announcement-inner .sep { opacity: 0.4; }
+
+    /* 页头 */
+    .site-header {
+      position: sticky;
+      top: 32px;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 0;
+    }
+    .header-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 20px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    .logo svg { flex-shrink: 0; }
+    .header-nav {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .header-nav a {
+      font-size: 14px;
+      padding: 5px 10px;
+      border-radius: var(--radius-tag);
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+    }
+    .header-nav a:hover, .header-nav a:focus-visible {
+      background: var(--primary);
+      color: #fff;
+      outline: 2px solid var(--accent);
+      outline-offset: 1px;
+    }
+    .header-actions {
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .btn-outline {
+      border: 1.5px solid var(--primary);
+      background: transparent;
+      padding: 6px 16px;
+      border-radius: var(--radius-tag);
+      font-size: 13px;
+      color: var(--primary);
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--primary); color: #fff; }
+    .btn-solid {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 7px 18px;
+      border-radius: var(--radius-tag);
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .btn-solid:hover { background: var(--accent); color: var(--primary-dark); }
+    .hamburger {
+      display: none;
+      background: none;
+      border: 1.5px solid var(--primary);
+      border-radius: var(--radius-tag);
+      padding: 5px 10px;
+      font-size: 18px;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    /* 主容器 */
+    .container {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 首屏 */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, #16213e 60%, #1a1a2e 100%);
+      color: #fff;
+      padding: 48px 0 44px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: -60px;
+      width: 320px;
+      height: 320px;
+      border: 2px solid rgba(226,194,117,0.15);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: 40px;
+      bottom: -80px;
+      width: 240px;
+      height: 240px;
+      border: 1.5px dashed rgba(226,194,117,0.2);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(226,194,117,0.15);
+      border: 1px solid rgba(226,194,117,0.35);
+      color: var(--accent-light);
+      font-size: 12px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.78);
+      max-width: 640px;
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .hero-actions .btn-hero {
+      background: var(--accent);
+      color: var(--primary-dark);
+      border: none;
+      padding: 10px 26px;
+      border-radius: var(--radius-tag);
+      font-size: 15px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .hero-actions .btn-hero:hover { background: #fff; }
+    .hero-actions .btn-hero-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 10px 24px;
+      border-radius: var(--radius-tag);
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+    .hero-actions .btn-hero-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* 三栏布局 */
+    .layout-3col {
+      display: grid;
+      grid-template-columns: 170px 1fr 240px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* 左频道索引 */
+    .channel-index {
+      position: sticky;
+      top: 100px;
+    }
+    .channel-index h2 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-tertiary);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .channel-list li { margin-bottom: 2px; }
+    .channel-list a {
+      display: block;
+      padding: 6px 12px;
+      font-size: 14px;
+      border-radius: var(--radius-tag);
+      color: var(--text-secondary);
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+    .channel-list a:hover, .channel-list a.active {
+      background: var(--panel);
+      color: var(--primary);
+      border-left-color: var(--accent);
+      box-shadow: var(--shadow-default);
+    }
+
+    /* 主内容 */
+    .main-content { min-width: 0; }
+
+    /* 板块通用 */
+    .section {
+      margin-bottom: 36px;
+      scroll-margin-top: 100px;
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary);
+      position: relative;
+      padding-left: 14px;
+    }
+    .section-header h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .section-header .section-meta {
+      font-size: 13px;
+      color: var(--text-tertiary);
+    }
+    .section-lead {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    /* 概览 */
+    .overview-text {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-default);
+      font-size: 15px;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+    .overview-text p { margin-bottom: 12px; }
+    .overview-text p:last-child { margin-bottom: 0; }
+    .overview-text strong { color: var(--text-primary); }
+
+    /* 精选卡片 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .content-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .content-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+    .card-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      background: var(--primary-light);
+    }
+    .card-body { padding: 14px 16px 16px; flex: 1; display: flex; flex-direction: column; }
+    .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+    .card-tag {
+      font-size: 11px;
+      background: var(--bg);
+      color: var(--text-secondary);
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+    }
+    .card-tag.type { background: var(--primary); color: #fff; }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .card-meta {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* 更新列表 */
+    .update-list {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 8px 0;
+      box-shadow: var(--shadow-default);
+      overflow: hidden;
+    }
+    .update-item {
+      display: flex;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      align-items: baseline;
+      transition: background 0.15s;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-item:hover { background: #faf9f6; }
+    .update-date {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+      min-width: 80px;
+    }
+    .update-title { font-weight: 600; font-size: 14px; }
+    .update-desc { font-size: 13px; color: var(--text-secondary); }
+
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 12px;
+    }
+    .category-item {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-default);
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .category-item:hover {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: var(--shadow-hover);
+    }
+    .category-item:hover .cat-desc { color: rgba(255,255,255,0.7); }
+    .cat-name { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .cat-desc { font-size: 12px; color: var(--text-tertiary); }
+
+    /* 深度解析 */
+    .deep-dive {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 28px 32px;
+      box-shadow: var(--shadow-default);
+      line-height: 1.9;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+    .deep-dive h3 {
+      font-size: 17px;
+      color: var(--primary);
+      margin: 24px 0 10px;
+      font-weight: 700;
+    }
+    .deep-dive h3:first-child { margin-top: 0; }
+    .deep-dive p { margin-bottom: 12px; }
+    .deep-dive ul { margin: 8px 0 14px 20px; list-style: disc; }
+    .deep-dive li { margin-bottom: 6px; }
+    .deep-dive strong { color: var(--text-primary); }
+
+    /* 指南步骤 */
+    .guide-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .guide-step {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 20px;
+      box-shadow: var(--shadow-default);
+      position: relative;
+    }
+    .step-number {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: var(--primary-dark);
+      border-radius: 50%;
+      text-align: center;
+      line-height: 28px;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    .step-title { font-weight: 600; font-size: 15px; margin-bottom: 6px; }
+    .step-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* FAQ */
+    .faq-list { background: var(--panel); border-radius: var(--radius-card); box-shadow: var(--shadow-default); overflow: hidden; }
+    .faq-list details { border-bottom: 1px solid var(--border); }
+    .faq-list details:last-child { border-bottom: none; }
+    .faq-list summary {
+      padding: 14px 20px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.15s;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary:hover { background: #faf9f6; }
+    .faq-list summary::after { content: '+'; font-size: 18px; color: var(--accent); font-weight: 400; }
+    .faq-list details[open] summary::after { content: '−'; }
+    .faq-answer {
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* 评论 */
+    .comments-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .comment-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-default);
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+    .comment-author {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .comment-time { font-size: 11px; color: var(--text-tertiary); float: right; }
+
+    /* 资讯 */
+    .news-list { background: var(--panel); border-radius: var(--radius-card); box-shadow: var(--shadow-default); overflow: hidden; }
+    .news-item { padding: 16px 20px; border-bottom: 1px solid var(--border); }
+    .news-item:last-child { border-bottom: none; }
+    .news-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+    .news-title a { color: var(--primary); }
+    .news-title a:hover { color: var(--accent); }
+    .news-date { font-size: 12px; color: var(--text-tertiary); margin-bottom: 4px; }
+    .news-summary { font-size: 13px; color: var(--text-secondary); line-height: 1.7; }
+
+    /* 相关推荐 */
+    .recommend-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .recommend-tag {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+    .recommend-tag:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* 榜单 */
+    .ranking-list { background: var(--panel); border-radius: var(--radius-card); box-shadow: var(--shadow-default); overflow: hidden; }
+    .ranking-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .ranking-item:last-child { border-bottom: none; }
+    .ranking-item:hover { background: #faf9f6; }
+    .rank-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg);
+      color: var(--text-tertiary);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .rank-num.top { background: var(--accent); color: var(--primary-dark); }
+    .rank-name { font-weight: 600; font-size: 14px; }
+    .rank-info { margin-left: auto; font-size: 12px; color: var(--text-tertiary); }
+
+    /* 侧栏 */
+    .sidebar { position: sticky; top: 100px; }
+    .sidebar-widget {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      padding: 18px 20px;
+      box-shadow: var(--shadow-default);
+      margin-bottom: 18px;
+    }
+    .sidebar-widget h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--primary);
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hot-list li {
+      display: flex;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 13px;
+      align-items: baseline;
+    }
+    .hot-list .hot-rank {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 12px;
+      min-width: 18px;
+    }
+    .sidebar-update {
+      font-size: 13px;
+      color: var(--text-secondary);
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--border);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .sidebar-update:last-child { border-bottom: none; }
+    .sidebar-update .date { color: var(--text-tertiary); font-size: 12px; white-space: nowrap; }
+    .sidebar-cta {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-radius: var(--radius-card);
+      padding: 20px;
+      text-align: center;
+    }
+    .sidebar-cta p { font-size: 13px; color: rgba(255,255,255,0.8); margin-bottom: 12px; }
+    .sidebar-cta .btn-solid { background: var(--accent); color: var(--primary-dark); }
+    .sidebar-cta .btn-solid:hover { background: #fff; }
+
+    /* 页尾 */
+    .site-footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 40px 0 24px;
+      margin-top: 20px;
+      font-size: 13px;
+    }
+    .footer-inner {
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 28px;
+    }
+    .footer-brand { font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .footer-desc { line-height: 1.8; color: rgba(255,255,255,0.6); max-width: 320px; }
+    .footer-col h4 {
+      color: #fff;
+      font-size: 14px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.55);
+      padding: 3px 0;
+      font-size: 13px;
+    }
+    .footer-col a:hover { color: var(--accent); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 16px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* 回到顶部 */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      box-shadow: var(--shadow-hover);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+      z-index: 200;
+    }
+    .back-to-top.visible { opacity: 1; visibility: visible; }
+    .back-to-top:hover { background: var(--accent); color: var(--primary-dark); }
+
+    /* 移动端遮罩 */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 150;
+    }
+    .overlay.active { display: block; }
+
+    /* 响应式 */
+    @media (max-width: 1024px) {
+      .layout-3col {
+        grid-template-columns: 1fr 240px;
+      }
+      .channel-index { display: none; }
+      .hero h1 { font-size: 30px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 740px) {
+      .layout-3col {
+        grid-template-columns: 1fr;
+      }
+      .sidebar { position: static; }
+      .header-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--panel);
+        flex-direction: column;
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow-hover);
+      }
+      .header-nav.open { display: flex; }
+      .hamburger { display: block; }
+      .header-inner { position: relative; }
+      .hero h1 { font-size: 26px; }
+      .hero-desc { font-size: 14px; }
+      .footer-top { grid-template-columns: 1fr; }
+      .card-grid { grid-template-columns: 1fr; }
+      .comments-grid { grid-template-columns: 1fr; }
+      .deep-dive { padding: 20px; }
+      .back-to-top { bottom: 20px; right: 16px; width: 38px; height: 38px; font-size: 17px; }
+      .announcement-inner { font-size: 11px; gap: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announcement-bar">
+  <div class="announcement-inner">
+    <span><strong>ipx666 silk</strong></span>
+    <span class="sep">|</span>
+    <span>2026-11-07 · Silk v3.2.1 发布，修复 IPX666 兼容层内存泄漏</span>
+    <span class="sep">|</span>
+    <span>2026-11-05 · 新增「边缘渲染」专题，收录 12 篇部署案例</span>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#home" class="logo">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#1a1a2e"/>
+        <path d="M8 22V10h4l4 6 4-6h4v12h-4v-6l-4 6-4-6v6z" fill="#e2c275"/>
+      </svg>
+      ipx666 silk
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="打开导航菜单" aria-expanded="false">☰</button>
+    <nav class="header-nav" id="headerNav" aria-label="主题导航">
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">最新动态</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deepdive">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#community">社区评论</a>
+      <a href="/#news">相关资讯</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-outline" onclick="alert('搜索功能为示例展示')">搜索</button>
+      <button class="btn-solid" onclick="alert('投稿入口为示例展示')">投稿</button>
+    </div>
+  </div>
+</header>
+
+<!-- 首屏 -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <span class="hero-tag">技术社区 · 资源索引</span>
+    <h1>ipx666 silk</h1>
+    <p class="hero-desc">汇聚 Silk 框架生态的项目实践、IPX666 版本迭代记录、工具链测评与部署案例。面向开发者与开源技术爱好者，追踪版本兼容性、性能调优与社区讨论。</p>
+    <div class="hero-actions">
+      <a href="/#featured" class="btn-hero">浏览精选项目</a>
+      <a href="/#deepdive" class="btn-hero-ghost">阅读深度解析</a>
+    </div>
+  </div>
+</section>
+
+<!-- 主体 -->
+<div class="container">
+  <div class="layout-3col">
+
+    <!-- 左频道索引 -->
+    <aside class="channel-index" aria-label="频道索引">
+      <h2>频道索引</h2>
+      <ul class="channel-list">
+        <li><a href="/#overview" class="active">领域概览</a></li>
+        <li><a href="/#featured">精选项目</a></li>
+        <li><a href="/#updates">版本动态</a></li>
+        <li><a href="/#categories">分类目录</a></li>
+        <li><a href="/#deepdive">技术解析</a></li>
+        <li><a href="/#guide">实践指南</a></li>
+        <li><a href="/#faq">常见问答</a></li>
+        <li><a href="/#community">社区评论</a></li>
+        <li><a href="/#news">相关资讯</a></li>
+        <li><a href="/#recommend">延伸阅读</a></li>
+        <li><a href="/#ranking">热门榜单</a></li>
+      </ul>
+    </aside>
+
+    <!-- 中间主内容 -->
+    <main class="main-content">
+
+      <!-- 1. 领域概览 -->
+      <section class="section" id="overview">
+        <div class="section-header">
+          <h2>Silk 框架与 IPX666 生态概览</h2>
+          <span class="section-meta">2026-11-08 更新</span>
+        </div>
+        <div class="overview-text">
+          <p>Silk 是一个面向边缘计算的轻量级服务框架，自 2024 年发布 1.0 版本以来，逐步形成了以 <strong>模块化路由</strong>、<strong>热重载开发服务器</strong> 和 <strong>多运行时兼容层</strong> 为核心的技术体系。IPX666 则是社区维护的兼容适配层，用于在 Silk 框架上运行旧版 IPX 协议服务。两者组合常见于中小规模 API 网关和静态站点生成场景。</p>
+          <p>当前值得关注的方向包括：Silk v3.2 引入的 <strong>增量构建缓存</strong>，在 500 个路由的测试项目中将冷启动时间从 12.4 秒压缩到 3.8 秒；IPX666 适配层在 2026 年 10 月完成对 Node.js 22 LTS 的正式支持；社区围绕 <strong>边缘渲染</strong> 场景产出了多个部署模板，覆盖 Cloudflare Workers 与 Deno Deploy 两个运行时。此外，Silk 官方在 11 月初发布了性能调优白皮书，针对高并发下的连接池配置给出了具体参数建议。</p>
+          <p>工具链方面，Silk CLI 在 10 月底更新至 2.8.0，新增 <strong>依赖图谱可视化</strong> 命令；IPX666 的迁移工具 <em>ipx-migrate</em> 可以自动扫描旧版配置文件并生成兼容性报告。社区讨论集中在两个话题：一是 Silk 是否应该内置 HTTP/3 支持，二是 IPX666 适配层的内存占用在长连接场景下偏高。这些问题在后续的深度解析和评论区有具体讨论。</p>
+        </div>
+      </section>
+
+      <!-- 2. 精选内容推荐 -->
+      <section class="section" id="featured">
+        <div class="section-header">
+          <h2>精选 Silk 项目与工具</h2>
+          <span class="section-meta">编辑推荐 · 6 项</span>
+        </div>
+        <div class="card-grid">
+          <article class="content-card">
+            <img class="card-img" src="https://picsum.photos/seed/silkapi1/400/300" alt="Silk 框架 API 网关部署架构示意图" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag type">教程</span>
+                <span class="card-tag">API 网关</span>
+                <span class="card-tag">Cloudflare Workers</span>
+              </div>
+              <h3 class="card-title">用 Silk 搭建边缘 API 网关：从零到上线</h3>
+              <p class="card-desc">基于 Silk v3.2 的路由模块与 JWT 中间件，在 Cloudflare Workers 上部署一个支持限流和鉴权的网关。文中给出了 wrangler.toml 的完整配置，以及冷启动从 890ms 优化到 210ms 的三处改动。</p>
+              <div class="card-meta"><span>2026-11-06</span><span>阅读 2.4k</span><span>评分 4.8</span></div>
+            </div>
+          </article>
+          <article class="content-card">
+            <img class="card-img" src="https://picsum.photos/seed/ipx666a/400/300" alt="IPX666 兼容层内存占用监控面板截图" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag type">测评</span>
+                <span class="card-tag">IPX666</span>
+                <span class="card-tag">性能调优</span>
+              </div>
+              <h3 class="card-title">IPX666 适配层长连接内存泄漏复现与修复</h3>
+              <p class="card-desc">在 Node.js 22 环境下，IPX666 v2.4.0 运行 6 小时后常驻内存增长到 1.8GB。文章记录了用 clinic.js 定位到连接池未释放的问题，并给出补丁代码。修复后 24 小时内存稳定在 320MB。</p>
+              <div class="card-meta"><span>2026-11-04</span><span>阅读 1.9k</span><span>评分 4.6</span></div>
+            </div>
+          </article>
+          <article class="content-card">
+            <img class="card-img" src="https://picsum.photos/seed/silkcli/400/300" alt="Silk CLI 依赖图谱可视化界面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag type">工具</span>
+                <span class="card-tag">Silk CLI</span>
+                <span class="card-tag">依赖分析</span>
+              </div>
+              <h3 class="card-title">Silk CLI 2.8.0 依赖图谱功能实战</h3>
+              <p class="card-desc">新版 silk graph 命令可以输出项目内模块的依赖关系图，支持导出 SVG 和 JSON。在一个 47 个组件的项目中，图谱清晰展示了 3 个循环依赖，帮助减少了 22% 的构建体积。</p>
+              <div class="card-meta"><span>2026-10-30</span><span>阅读 3.1k</span><span>评分 4.7</span></div>
+            </div>
+          </article>
+          <article class="content-card">
+            <img class="card-img" src="https://picsum.photos/seed/silkedge/400/300" alt="Deno Deploy 上 Silk 项目部署仪表盘" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag type">部署</span>
+                <span class="card-tag">Deno Deploy</span>
+                <span class="card-tag">边缘渲染</span>
+              </div>
+              <h3 class="card-title">Silk + Deno Deploy 边缘渲染模板解析</h3>
+              <p class="card-desc">该模板将 Silk 的 SSR 能力与 Deno Deploy 的全球节点结合，在 12 个区域实测首字节时间中位数为 68ms。文章拆解了模板中三个关键文件的作用，并附上了自定义域名的配置步骤。</p>
+              <div class="card-meta"><span>2026-10-28</span><span>阅读 1.6k</span><span>评分 4.5</span></div>
+            </div>
+          </article>
+          <article class="content-card">
+            <img class="card-img" src="https://picsum.photos/seed/ipxmig/400/300" alt="ipx-migrate 兼容性报告输出示例" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag type">工具</span>
+                <span class="card-tag">ipx-migrate</span>
+                <span class="card-tag">迁移</span>
+              </div>
+              <h3 class="card-title">ipx-migrate 自动迁移旧版 IPX 配置实践</h3>
+              <p class="card-desc">工具扫描了 23 个旧版配置文件，识别出 7 处不兼容的中间件签名变更，并自动生成了替换代码。迁移后项目在 Silk v3.2 上一次性通过集成测试，耗时从预估的 3 天缩短到 4 小时。</p>
+              <div class="card-meta"><span>2026-10-25</span><span>阅读 2.2k</span><span>评分 4.4</span></div>
+            </div>
+          </article>
+          <article class="content-card">
+            <img class="card-img" src="https://picsum.photos/seed/silkperf/400/300" alt="Silk 框架性能调优白皮书封面" width="400" height="300" loading="lazy">
+            <div class="card-body">
+              <div class="card-tags">
+                <span class="card-tag type">文档</span>
+                <span class="card-tag">性能调优</span>
+                <span class="card-tag">连接池</span>
+              </div>
+              <h3 class="card-title">Silk 官方性能白皮书解读：连接池配置与背压策略</h3>
+              <p class="card-desc">白皮书第 3 章给出了不同并发量下的连接池推荐值：500 QPS 以下池大小 16，500-2000 QPS 池大小 32。文中还对比了开启背压前后的错误率变化，在 1500 QPS 下错误率从 2.3% 降至 0.4%。</p>
+              <div class="card-meta"><span>2026-11-02</span><span>阅读 4.0k</span><span>评分 4.9</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. 最新更新 -->
+      <section class="section" id="updates">
+        <div class="section-header">
+          <h2>版本发布与社区动态</h2>
+          <span class="section-meta">近 30 天</span>
+        </div>
+        <div class="update-list">
+          <div class="update-item">
+            <span class="update-date">2026-11-07</span>
+            <div><span class="update-title">Silk v3.2.1 发布</span><span class="update-desc"> 修复 IPX666 兼容层在 Windows 下的内存泄漏，补丁编号 #4821。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-11-05</span>
+            <div><span class="update-title">边缘渲染专题上线</span><span class="update-desc"> 收录 Cloudflare Workers 与 Deno Deploy 部署案例共 12 篇，含 3 个完整项目源码。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-11-03</span>
+            <div><span class="update-title">Silk CLI 2.8.1 热修复</span><span class="update-desc"> 修正 silk graph 在 monorepo 下路径解析错误，影响 0.3% 的项目。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-10-31</span>
+            <div><span class="update-title">IPX666 v2.4.1 发布</span><span class="update-desc"> 新增 Node.js 22 LTS 官方支持，连接池默认空闲超时从 30s 调整为 15s。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-10-29</span>
+            <div><span class="update-title">社区投票：HTTP/3 内置支持</span><span class="update-desc"> 发起人在 Silk 仓库提交 RFC #209，目前 67% 投票者支持在 v4.0 中加入。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-10-26</span>
+            <div><span class="update-title">ipx-migrate 0.9.0 发布</span><span class="update-desc"> 兼容性报告新增“中间件签名变更”与“环境变量映射”两项检查，覆盖 94% 的旧版配置项。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-10-23</span>
+            <div><span class="update-title">Silk 性能白皮书发布</span><span class="update-desc"> 共 42 页，包含 8 个基准测试场景，其中高并发场景数据引发社区讨论。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-10-20</span>
+            <div><span class="update-title">Cloudflare Workers 模板更新</span><span class="update-desc"> silk-worker-template 升级至 v1.4，支持 Workers KV 绑定与 Durable Objects。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-10-17</span>
+            <div><span class="update-title">IPX666 社区维护者换届</span><span class="update-desc"> 原维护者 @xuan 因工作变动卸任，新维护者 @lin 接手版本发布与 issue 处理。</span></div>
+          </div>
+          <div class="update-item">
+            <span class="update-date">2026-10-14</span>
+            <div><span class="update-title">Silk v3.1.8 安全补丁</span><span class="update-desc"> 修复路由参数注入漏洞 CVE-2026-7821，影响 3.1.0 至 3.1.7 版本。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. 分类入口 -->
+      <section class="section" id="categories">
+        <div class="section-header">
+          <h2>按类型浏览</h2>
+        </div>
+        <div class="category-grid">
+          <a href="/#featured" class="category-item">
+            <div class="cat-name">部署教程</div>
+            <div class="cat-desc">Workers / Deno / 自托管</div>
+          </a>
+          <a href="/#featured" class="category-item">
+            <div class="cat-name">IPX666 适配</div>
+            <div class="cat-desc">兼容层 / 迁移工具</div>
+          </a>
+          <a href="/#featured" class="category-item">
+            <div class="cat-name">性能调优</div>
+            <div class="cat-desc">连接池 / 缓存 / 冷启动</div>
+          </a>
+          <a href="/#featured" class="category-item">
+            <div class="cat-name">工具链</div>
+            <div class="cat-desc">CLI / 依赖分析 / 构建</div>
+          </a>
+          <a href="/#deepdive" class="category-item">
+            <div class="cat-name">深度解析</div>
+            <div class="cat-desc">架构对比 / 源码解读</div>
+          </a>
+          <a href="/#news" class="category-item">
+            <div class="cat-name">版本资讯</div>
+            <div class="cat-desc">Release / RFC / 安全</div>
+          </a>
+          <a href="/#community" class="category-item">
+            <div class="cat-name">社区讨论</div>
+            <div class="cat-desc">踩坑 / 提问 / 经验</div>
+          </a>
+          <a href="/#guide" class="category-item">
+            <div class="cat-name">实践指南</div>
+            <div class="cat-desc">选型 / 对比 / 评估</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- 5. 深度解析 -->
+      <section class="section" id="deepdive">
+        <div class="section-header">
+          <h2>Silk 框架与 IPX666 适配层的技术取舍</h2>
+          <span class="section-meta">深度 · 约 850 字</span>
+        </div>
+        <div class="deep-dive">
+          <h3>增量构建缓存的实际收益边界</h3>
+          <p>Silk v3.2 引入的增量构建缓存，核心机制是将每个路由模块的编译产物与文件哈希绑定，生成 <strong>.silk-cache</strong> 目录。当文件未变更时，直接复用缓存产物跳过编译。在 500 个路由的测试项目中，冷启动从 12.4 秒降到 3.8 秒，冷启动后的首次请求响应时间从 210ms 降到 85ms。这组数据来自官方基准测试仓库 <em>silk-benchmarks</em> 的 2026 年 10 月报告。</p>
+          <p>收益边界同样清晰：路由数量少于 80 个的项目，缓存命中带来的提速不足 1.2 秒，还需额外承担约 40MB 的磁盘占用。在 CI 环境中，如果每次构建都拉取全新容器，缓存目录需要单独挂载，配置成本可能超过收益。判断是否启用可以看一个指标——<strong>两次构建之间变更的路由占比</strong>。低于 15% 时缓存有价值，高于 40% 时命中率下降，提速有限。</p>
+          <h3>IPX666 内存问题的根因与社区分歧</h3>
+          <p>IPX666 v2.4.0 在 Node.js 22 下运行 6 小时后内存增长到 1.8GB 的问题，根因已定位为连接池中的 keep-alive 连接在空闲超时后未正确销毁。修复补丁 #4821 将空闲超时从 30 秒改为 15 秒，并增加了 <strong>连接健康检查</strong> 回调。修复后 24 小时内存稳定在 320MB，但社区对“是否应该调整默认空闲超时”存在分歧：一部分使用者认为 15 秒会导致频繁重连，增加握手开销；维护者 @lin 在 11 月 7 日的 issue 回复中表示，后续版本会改为可配置项，默认值保持 15 秒。</p>
+          <p>需要区分信息来源：内存泄漏是 <strong>已公开事实</strong>（有复现脚本和监控截图）；“调整默认值会影响长连接场景”是 <strong>社区讨论中的推测</strong>，尚无 benchmark 数据支撑；维护者的回复属于 <strong>当事人回应</strong>，承诺了后续动作但未给出时间表。</p>
+          <h3>边缘渲染场景下 Silk 与 Next.js 的对比维度</h3>
+          <p>在 Cloudflare Workers 上部署时，Silk 的冷启动中位数为 210ms（基于 11 月 5 日边缘渲染专题中的 12 个案例统计），Next.js 在同类场景下的冷启动中位数为 480ms（数据来自社区案例汇总，非官方对比）。Silk 的优势来自更小的运行时体积——基础包约 1.8MB，而 Next.js 的边缘运行时约 4.2MB。但 Silk 的生态成熟度不及 Next.js，在图片优化、国际化路由等场景需要额外引入中间件。选型时更值得关注的是 <strong>团队已有的技术栈</strong>：如果项目已经重度使用 React 生态，迁移到 Silk 的收益可能被适配成本抵消。</p>
+          <h3>兼容层的版本策略：锁定大版本还是跟随最新</h3>
+          <p>IPX666 的版本号策略是 <strong>主版本号对齐 Silk 的大版本</strong>，次版本号独立迭代。例如 Silk 3.x 对应 IPX666 2.x。这种策略的好处是依赖关系清晰，风险在于 Silk 发布 4.0 时，IPX666 需要同步升级主版本，可能引入不兼容变更。对比社区另一个适配层 <em>silk-bridge</em>，后者采用完全独立的版本号，升级更灵活但依赖关系需要手动核对。选择哪一类取决于团队对 <strong>依赖更新频率</strong> 的容忍度：版本锁定策略适合追求稳定性的项目，独立版本策略适合需要快速跟进新特性的场景。</p>
+        </div>
+      </section>
+
+      <!-- 6. 体验指南 -->
+      <section class="section" id="guide">
+        <div class="section-header">
+          <h2>技术选型与阅读路径</h2>
+          <span class="section-meta">指南</span>
+        </div>
+        <p class="section-lead">面对 Silk 生态中大量的教程和项目，按以下顺序评估可以降低踩坑成本。</p>
+        <div class="guide-steps">
+          <div class="guide-step">
+            <span class="step-number">1</span>
+            <div class="step-title">先确认运行时兼容性</div>
+            <p class="step-desc">Silk v3.2 要求 Node.js ≥ 20。如果项目锁定 Node.js 18，需要回退到 Silk v3.1.x。IPX666 从 v2.4.1 起才正式支持 Node.js 22 LTS，旧版本在 22 下存在内存问题。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-number">2</span>
+            <div class="step-title">判断项目规模是否值得用增量缓存</div>
+            <p class="step-desc">路由数低于 80 个、且变更集中在少数模块时，增量缓存的提速有限。可以先用 silk build --profile 跑一次基准，对比启用前后的构建时间差。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-number">3</span>
+            <div class="step-title">对比部署目标的限制</div>
+            <p class="step-desc">Cloudflare Workers 免费版限制 10ms CPU 时间，适合轻量路由；Deno Deploy 的免费额度更宽松，但冷启动受区域影响。先在目标平台跑通最小示例，再评估迁移成本。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-number">4</span>
+            <div class="step-title">检查适配层的 issue 活跃度</div>
+            <p class="step-desc">IPX666 的 issue 平均响应时间为 2.3 天（基于 10 月数据），未关闭 issue 共 17 个。如果项目依赖冷门中间件，先搜索对应关键词确认是否已有兼容问题。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-number">5</span>
+            <div class="step-title">用迁移工具做一次扫描</div>
+            <p class="step-desc">ipx-migrate 0.9.0 可以扫描旧版配置并生成兼容性报告，覆盖 94% 的配置项。扫描结果比人工排查快，但报告中的“建议替换”需要逐条确认，避免误改。</p>
+          </div>
+          <div class="guide-step">
+            <span class="step-number">6</span>
+            <div class="step-title">评估社区支持与文档质量</div>
+            <p class="step-desc">Silk 官方文档覆盖了 90% 的 API，边缘场景的示例仍在补充中。IPX666 的文档以 README 为主，复杂配置需要参考 issue 中的讨论。文档缺口大的模块，优先考虑社区活跃度更高的替代方案。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. FAQ -->
+      <section class="section" id="faq">
+        <div class="section-header">
+          <h2>常见问题</h2>
+          <span class="section-meta">6 问</span>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Silk v3.2 和 IPX666 v2.4.1 搭配时需要注意什么？</summary>
+            <div class="faq-answer">两个组件的版本对应关系是 Silk 3.x 配 IPX666 2.x。需要注意 IPX666 v2.4.1 修复了 Node.js 22 下的内存泄漏，如果运行环境是 Node.js 22，必须升级到该版本或更高。另外 Silk v3.2.1 修复了 Windows 下的兼容层泄漏，Windows 开发环境建议同步升级。</div>
+          </details>
+          <details>
+            <summary>增量构建缓存在什么情况下反而会拖慢构建？</summary>
+            <div class="faq-answer">当两次构建之间变更的路由占比高于 40% 时，缓存命中率下降，读取和校验缓存目录的耗时会抵消部分收益。此外，在 CI 容器中如果没有持久化缓存目录，每次构建都从零开始，缓存的收益为零且额外占用约 40MB 磁盘空间。路由数少于 80 个的项目，提速通常不足 1.2 秒。</div>
+          </details>
+          <details>
+            <summary>IPX666 连接池空闲超时调整后，长连接场景会受影响吗？</summary>
+            <div class="faq-answer">空闲超时从 30 秒改为 15 秒后，长连接如果间隔超过 15 秒没有请求，连接会被回收，下次请求需要重新握手。对于平均请求间隔小于 15 秒的场景影响很小。维护者表示后续版本会将空闲超时改为可配置项，默认值保持 15 秒。目前社区讨论中的“频繁重连增加开销”尚无 benchmark 数据支撑。</div>
+          </details>
+          <details>
+            <summary>Cloudflare Workers 和 Deno Deploy 部署 Silk 项目有什么区别？</summary>
+            <div class="faq-answer">Workers 免费版限制 10ms CPU 时间，适合轻量路由和静态响应；Deno Deploy 的免费额度更宽松，但冷启动受区域影响，实测 12 个区域的首字节时间中位数为 68ms。Workers 的 KV 和 Durable Objects 提供原生存储能力，Deno Deploy 需要搭配外部数据库。选型时优先看项目对存储和 CPU 时间的需求。</div>
+          </details>
+          <details>
+            <summary>ipx-migrate 生成的兼容性报告可信吗？</summary>
+            <div class="faq-answer">报告覆盖 94% 的旧版配置项，识别中间件签名变更和环境变量映射的准确率在测试项目中较高。但报告中的“建议替换”是自动生成的，需要逐条人工确认。例如某些自定义中间件的签名变更可能不影响实际调用，自动替换反而会引入错误。建议将报告作为排查起点，而非直接应用。</div>
+          </details>
+          <details>
+            <summary>Silk 生态中是否有类似 Next.js 图片优化组件的方案？</summary>
+            <div class="faq-answer">Silk 官方没有内置图片优化组件，社区方案是在路由中间件中接入 unpic 或 ipx 的图片处理服务。边缘渲染场景下，Cloudflare Workers 可以配合 Cloudflare Images 实现动态裁剪。如果需要开箱即用的图片优化，Next.js 的生态更完整，但运行时体积约为 Silk 的 2.3 倍。</div>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8. 用户评论 -->
+      <section class="section" id="community">
+        <div class="section-header">
+          <h2>社区讨论</h2>
+          <span class="section-meta">16 条</span>
+        </div>
+        <div class="comments-grid">
+          <div class="comment-card">
+            <div class="comment-author">@edge_dog <span class="comment-time">11-07</span></div>
+            <p>v3.2.1 的补丁确实修好了 Windows 下的泄漏，之前跑测试的时候内存蹭蹭涨，现在稳了。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@lin_worker <span class="comment-time">11-07</span></div>
+            <p>IPX666 的 15 秒空闲超时对我们这种低频长连接太不友好了，每次都要重新握手。希望赶紧出可配置项。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@silk_newbie <span class="comment-time">11-06</span></div>
+            <p>跟着边缘渲染专题的 Deno 模板跑了一遍，68ms 的中位数没测出来，我这边跑到 110ms 左右，可能区域节点不同。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@graph_lover <span class="comment-time">11-05</span></div>
+            <p>silk graph 导出的 SVG 挺好用的，直接贴进文档里，循环依赖一眼就能看到。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@cc_worker <span class="comment-time">11-05</span></div>
+            <p>Workers 免费版 10ms CPU 限制太紧了，稍微复杂点的路由就超，还是得升付费。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@migrate_joy <span class="comment-time">11-04</span></div>
+            <p>ipx-migrate 扫出来 7 个问题，有 2 个是误报，中间件签名其实没变。不过总体省了不少时间。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@pool_size <span class="comment-time">11-04</span></div>
+            <p>白皮书里池大小 32 的建议在我们 1200 QPS 的场景下偏高，降到 20 反而错误率更低。可能跟实例规格有关。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@xuan_left <span class="comment-time">11-03</span></div>
+            <p>@xuan 卸任有点可惜，之前几个 issue 都是他回的，响应很快。希望 @lin 也能保持这个节奏。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@http3_vote <span class="comment-time">11-02</span></div>
+            <p>HTTP/3 内置支持我投了反对，现在用 nginx 前置也能做，框架里加进来只会让包更大。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@cache_hit <span class="comment-time">11-01</span></div>
+            <p>增量缓存对 monorepo 太友好了，我们 200 多个路由，改一个模块构建从 9 秒降到 2 秒出头。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@v31_user <span class="comment-time">10-31</span></div>
+            <p>还在用 v3.1.6，看到 CVE 补丁赶紧升了 3.1.8。安全更新不能拖。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@deno_fan <span class="comment-time">10-30</span></div>
+            <p>Deno Deploy 的模板有个小问题，环境变量没在文档里写全，踩了半天坑才找到。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@silk_bench <span class="comment-time">10-29</span></div>
+            <p>官方 benchmark 用的机器配置和实际生产差挺多，冷启动 3.8 秒在我们环境里是 5.1 秒。仅供参考吧。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@image_opt <span class="comment-time">10-28</span></div>
+            <p>图片优化确实是个缺口，现在用 unpic 凑合，但边缘场景下还是不如 Cloudflare Images 省心。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@version_lock <span class="comment-time">10-27</span></div>
+            <p>主版本对齐的策略我挺喜欢，升级的时候不用猜哪个版本对应哪个，省心。</p>
+          </div>
+          <div class="comment-card">
+            <div class="comment-author">@bridge_user <span class="comment-time">10-26</span></div>
+            <p>silk-bridge 用了一段时间，版本号独立确实灵活，但每次 Silk 升级都要手动核对依赖，麻烦。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. 相关资讯 -->
+      <section class="section" id="news">
+        <div class="section-header">
+          <h2>资讯速递</h2>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-date">2026-11-07</div>
+            <div class="news-title"><a href="/#updates">Silk v3.2.1 补丁发布，修复 Windows 下 IPX666 内存泄漏</a></div>
+            <p class="news-summary">补丁编号 #4821，将连接池空闲超时从 30 秒调整为 15 秒，并新增连接健康检查回调。Windows 环境下的测试用例已全部通过。</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-11-05</div>
+            <div class="news-title"><a href="/#featured">边缘渲染专题收录 12 篇部署案例，含 3 个完整项目源码</a></div>
+            <p class="news-summary">案例覆盖 Cloudflare Workers 与 Deno Deploy，其中 Workers 场景的冷启动中位数为 210ms，Deno 场景首字节时间中位数 68ms。</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-11-02</div>
+            <div class="news-title"><a href="/#deepdive">Silk 性能白皮书发布，连接池推荐值引发社区讨论</a></div>
+            <p class="news-summary">白皮书第 3 章给出 500 QPS 以下池大小 16、500-2000 QPS 池大小 32 的建议。有社区成员反馈在 1200 QPS 场景下池大小 20 错误率更低。</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-10-31</div>
+            <div class="news-title"><a href="/#updates">IPX666 v2.4.1 正式支持 Node.js 22 LTS</a></div>
+            <p class="news-summary">该版本将连接池默认空闲超时调整为 15 秒，并标记 Node.js 22 为官方支持运行时。维护者表示后续会将超时改为可配置项。</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-10-29</div>
+            <div class="news-title"><a href="/#updates">RFC #209 发起投票：Silk v4.0 是否内置 HTTP/3</a></div>
+            <p class="news-summary">投票持续 14 天，目前 67% 参与者支持内置。反对者主要担心包体积增加，支持者认为边缘场景下 HTTP/3 的收益大于成本。</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2026-10-23</div>
+            <div class="news-title"><a href="/#featured">ipx-migrate 0.9.0 发布，配置项覆盖率提升至 94%</a></div>
+            <p class="news-summary">新增“中间件签名变更”与“环境变量映射”两项检查。在测试项目中扫描 23 个旧版配置，识别出 7 处不兼容项。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. 相关推荐 -->
+      <section class="section" id="recommend">
+        <div class="section-header">
+          <h2>延伸阅读方向</h2>
+        </div>
+        <div class="recommend-tags">
+          <a href="/#featured" class="recommend-tag">Silk 路由中间件编写</a>
+          <a href="/#featured" class="recommend-tag">IPX666 连接池调优</a>
+          <a href="/#deepdive" class="recommend-tag">Deno Deploy 冷启动实测</a>
+          <a href="/#guide" class="recommend-tag">Cloudflare Workers CPU 限制绕过</a>
+          <a href="/#featured" class="recommend-tag">silk graph 循环依赖分析</a>
+          <a href="/#deepdive" class="recommend-tag">增量缓存命中率计算</a>
+          <a href="/#guide" class="recommend-tag">ipx-migrate 误报处理</a>
+          <a href="/#news" class="recommend-tag">CVE-2026-7821 补丁说明</a>
+        </div>
+      </section>
+
+      <!-- 11. 补充板块：热门榜单 -->
+      <section class="section" id="ranking">
+        <div class="section-header">
+          <h2>本周热门条目</h2>
+          <span class="section-meta">按浏览量排序</span>
+        </div>
+        <div class="ranking-list">
+          <div class="ranking-item">
+            <span class="rank-num top">1</span>
+            <span class="rank-name">Silk 官方性能白皮书解读</span>
+            <span class="rank-info">4.0k 阅读 · 11-02</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num top">2</span>
+            <span class="rank-name">Silk CLI 2.8.0 依赖图谱实战</span>
+            <span class="rank-info">3.1k 阅读 · 10-30</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num top">3</span>
+            <span class="rank-name">用 Silk 搭建边缘 API 网关</span>
+            <span class="rank-info">2.4k 阅读 · 11-06</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">4</span>
+            <span class="rank-name">ipx-migrate 自动迁移实践</span>
+            <span class="rank-info">2.2k 阅读 · 10-25</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">5</span>
+            <span class="rank-name">IPX666 内存泄漏复现与修复</span>
+            <span class="rank-info">1.9k 阅读 · 11-04</span>
+          </div>
+          <div class="ranking-item">
+            <span class="rank-num">6</span>
+            <span class="rank-name">Silk + Deno Deploy 模板解析</span>
+            <span class="rank-info">1.6k 阅读 · 10-28</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- 右侧辅助栏 -->
+    <aside class="sidebar" aria-label="侧栏">
+      <div class="sidebar-widget">
+        <h3>站内热榜</h3>
+        <ul class="hot-list">
+          <li><span class="hot-rank">1</span><a href="/#deepdive">增量构建缓存收益边界</a></li>
+          <li><span class="hot-rank">2</span><a href="/#faq">IPX666 空闲超时怎么调</a></li>
+          <li><span class="hot-rank">3</span><a href="/#featured">Workers 冷启动优化</a></li>
+          <li><span class="hot-rank">4</span><a href="/#guide">选型对比：Silk vs Next.js</a></li>
+          <li><span class="hot-rank">5</span><a href="/#news">CVE-2026-7821 影响范围</a></li>
+        </ul>
+      </div>
+      <div class="sidebar-widget">
+        <h3>最近更新</h3>
+        <div class="sidebar-update"><span>Silk v3.2.1 发布</span><span class="date">11-07</span></div>
+        <div class="sidebar-update"><span>边缘渲染专题上线</span><span class="date">11-05</span></div>
+        <div class="sidebar-update"><span>IPX666 v2.4.1 发布</span><span class="date">10-31</span></div>
+        <div class="sidebar-update"><span>性能白皮书发布</span><span class="date">10-23</span></div>
+        <div class="sidebar-update"><span>RFC #209 投票中</span><span class="date">10-29</span></div>
+      </div>
+      <div class="sidebar-cta">
+        <p>有部署案例或踩坑记录？</p>
+        <button class="btn-solid" onclick="alert('投稿入口为示例展示')">提交稿件</button>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">ipx666 silk</div>
+        <p class="footer-desc">追踪 Silk 框架版本迭代与 IPX666 适配层实践，覆盖部署教程、性能调优、迁移工具与社区讨论。内容时间跨度从 2024 年 Silk 1.0 发布至今，以教程、测评、资讯和问答为主要形态，每周更新 2-3 次。</p>
+      </div>
+      <div class="footer-col">
+        <h4>内容</h4>
+        <a href="/#featured">精选项目</a>
+        <a href="/#deepdive">深度解析</a>
+        <a href="/#guide">实践指南</a>
+        <a href="/#faq">常见问题</a>
+      </div>
+      <div class="footer-col">
+        <h4>动态</h4>
+        <a href="/#updates">版本发布</a>
+        <a href="/#news">资讯速递</a>
+        <a href="/#ranking">热门榜单</a>
+        <a href="/#recommend">延伸阅读</a>
+      </div>
+      <div class="footer-col">
+        <h4>互动</h4>
+        <a href="/#community">社区评论</a>
+        <a href="/#categories">分类浏览</a>
+        <a href="/#overview">领域概览</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ipx666 silk 技术社区示例页面 · 内容为示例条目，事实性表述以官方发布为准</span>
+      <span>更新时间：2026-11-08</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+<!-- 移动端遮罩 -->
+<div class="overlay" id="overlay"></div>
+
+<script>
+  (function() {
+    // 移动端导航
+    const hamburger = document.getElementById('hamburger');
+    const headerNav = document.getElementById('headerNav');
+    const overlay = document.getElementById('overlay');
+
+    function closeNav() {
+      headerNav.classList.remove('open');
+      overlay.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    function openNav() {
+      headerNav.classList.add('open');
+      overlay.classList.add('active');
+      hamburger.setAttribute('aria-expanded', 'true');
+    }
+
+    hamburger.addEventListener('click', function() {
+      if (headerNav.classList.contains('open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    overlay.addEventListener('click', closeNav);
+
+    headerNav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeNav);
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // 回到顶部
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > window.innerHeight) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 侧栏频道高亮
+    const sections = document.querySelectorAll('.section[id]');
+    const channelLinks = document.querySelectorAll('.channel-list a');
+
+    function highlightNav() {
+      let current = '';
+      sections.forEach(function(section) {
+        const sectionTop = section.offsetTop - 140;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      channelLinks.forEach(function(link) {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '/#' + current) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', highlightNav);
+    highlightNav();
+
+    // 锚点平滑滚动偏移（考虑吸顶条高度）
+    document.querySelectorAll('a[href^="/#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(2);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          const offset = 100;
+          const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "ipx666 silk",
+  "description": "关注 Silk 框架生态与 IPX666 适配层的技术社区资源索引，汇集部署教程、版本动态、工具测评与社区问答。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Silk v3.2 和 IPX666 v2.4.1 搭配时需要注意什么？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "两个组件的版本对应关系是 Silk 3.x 配 IPX666 2.x。需要注意 IPX666 v2.4.1 修复了 Node.js 22 下的内存泄漏，如果运行环境是 Node.js 22，必须升级到该版本或更高。另外 Silk v3.2.1 修复了 Windows 下的兼容层泄漏，Windows 开发环境建议同步升级。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "增量构建缓存在什么情况下反而会拖慢构建？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "当两次构建之间变更的路由占比高于 40% 时，缓存命中率下降，读取和校验缓存目录的耗时会抵消部分收益。此外，在 CI 容器中如果没有持久化缓存目录，每次构建都从零开始，缓存的收益为零且额外占用约 40MB 磁盘空间。路由数少于 80 个的项目，提速通常不足 1.2 秒。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "IPX666 连接池空闲超时调整后，长连接场景会受影响吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "空闲超时从 30 秒改为 15 秒后，长连接如果间隔超过 15 秒没有请求，连接会被回收，下次请求需要重新握手。对于平均请求间隔小于 15 秒的场景影响很小。维护者表示后续版本会将空闲超时改为可配置项，默认值保持 15 秒。目前社区讨论中的“频繁重连增加开销”尚无 benchmark 数据支撑。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Cloudflare Workers 和 Deno Deploy 部署 Silk 项目有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Workers 免费版限制 10ms CPU 时间，适合轻量路由和静态响应；Deno Deploy 的免费额度更宽松，但冷启动受区域影响，实测 12 个区域的首字节时间中位数为 68ms。Workers 的 KV 和 Durable Objects 提供原生存储能力，Deno Deploy 需要搭配外部数据库。选型时优先看项目对存储和 CPU 时间的需求。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ipx-migrate 生成的兼容性报告可信吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "报告覆盖 94% 的旧版配置项，识别中间件签名变更和环境变量映射的准确率在测试项目中较高。但报告中的“建议替换”是自动生成的，需要逐条人工确认。例如某些自定义中间件的签名变更可能不影响实际调用，自动替换反而会引入错误。建议将报告作为排查起点，而非直接应用。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Silk 生态中是否有类似 Next.js 图片优化组件的方案？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Silk 官方没有内置图片优化组件，社区方案是在路由中间件中接入 unpic 或 ipx 的图片处理服务。边缘渲染场景下，Cloudflare Workers 可以配合 Cloudflare Images 实现动态裁剪。如果需要开箱即用的图片优化，Next.js 的生态更完整，但运行时体积约为 Silk 的 2.3 倍。"
+      }
+    }
+  ]
+}
+</script>
+</body>
+              </html>
