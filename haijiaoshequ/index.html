@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>海角社区今日大陆最新访问网址 - 域名变更与访问入口追踪</title>
+<meta name="description" content="海角社区今日大陆最新访问网址栏目，汇总域名变更记录、镜像入口状态、登录异常排查与社区板块更新，适合关注站点可达性与访问方式变化的用户查阅。">
+<meta name="keywords" content="海角社区今日大陆最新访问网址">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f2a44'/%3E%3Cpath d='M14 40c6-12 12-16 18-16s12 4 18 16' stroke='%2340c9b0' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='22' r='4' fill='%23f2b544'/%3E%3C/svg%3E">
+<style>
+:root{
+  --primary:#0f2a44;
+  --primary-light:#1c4468;
+  --primary-dark:#081a2c;
+  --accent:#40c9b0;
+  --accent-soft:#e3f7f3;
+  --warn:#f2b544;
+  --bg:#f5f7fa;
+  --panel:#ffffff;
+  --text:#1a2330;
+  --text-2:#4a5768;
+  --text-3:#7d8a9b;
+  --line:#e2e8f0;
+  --line-soft:#eef2f7;
+  --radius-card:12px;
+  --radius-btn:8px;
+  --radius-tag:6px;
+  --radius-banner:16px;
+  --shadow:0 1px 3px rgba(15,42,68,.07),0 4px 14px rgba(15,42,68,.05);
+  --shadow-hover:0 4px 10px rgba(15,42,68,.10),0 10px 28px rgba(15,42,68,.09);
+  --sticky-h:104px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-h);}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;}
+a{color:inherit;text-decoration:none;}
+img{display:block;max-width:100%;}
+button{font-family:inherit;}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700;}
+p{margin:0 0 12px;}
+ul,ol{margin:0 0 12px;padding-left:20px;}
+li{margin-bottom:6px;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+/* ── 吸顶公告条 + 页头 ── */
+.sticky-wrap{position:sticky;top:0;z-index:60;}
+.notice-bar{background:var(--primary-dark);color:#c9d8e6;font-size:13px;line-height:1.6;}
+.notice-inner{max-width:1360px;margin:0 auto;padding:7px 20px;display:flex;gap:22px;align-items:center;overflow:hidden;}
+.notice-brand{color:var(--accent);font-weight:700;white-space:nowrap;letter-spacing:.5px;}
+.notice-item{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.notice-item b{color:var(--warn);font-weight:600;margin-right:6px;}
+.notice-more{margin-left:auto;white-space:nowrap;color:#8fb3cd;border-bottom:1px dashed #3d5f7d;}
+
+.site-header{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(15,42,68,.03);}
+.header-inner{max-width:1360px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:26px;height:66px;}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.brand svg{width:34px;height:34px;flex-shrink:0;}
+.brand-text{font-size:17px;font-weight:800;color:var(--primary);letter-spacing:.2px;white-space:nowrap;}
+.main-nav{display:flex;gap:2px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;}
+.main-nav::-webkit-scrollbar{display:none;}
+.main-nav a{padding:7px 12px;border-radius:var(--radius-btn);font-size:14px;color:var(--text-2);white-space:nowrap;transition:background .18s,color .18s;}
+.main-nav a:hover,.main-nav a.active{background:var(--accent-soft);color:var(--primary);font-weight:600;}
+.header-tools{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.search-box{display:flex;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:var(--radius-btn);padding:0 4px 0 10px;height:36px;}
+.search-box input{border:0;background:transparent;outline:none;width:150px;font-size:13px;color:var(--text);}
+.search-box button{border:0;background:var(--primary);color:#fff;border-radius:6px;height:28px;padding:0 10px;font-size:13px;cursor:pointer;}
+.search-box button:hover{background:var(--primary-light);}
+.btn-submit{background:var(--accent);color:#06302a;font-weight:700;font-size:13px;border:0;border-radius:var(--radius-btn);padding:8px 14px;cursor:pointer;white-space:nowrap;}
+.btn-submit:hover{background:#33b8a0;}
+.hamburger{display:none;background:transparent;border:1px solid var(--line);border-radius:8px;width:38px;height:38px;cursor:pointer;align-items:center;justify-content:center;}
+.hamburger span{display:block;width:17px;height:2px;background:var(--primary);position:relative;}
+.hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:17px;height:2px;background:var(--primary);}
+.hamburger span::before{top:-5px;}
+.hamburger span::after{top:5px;}
+
+/* ── 首屏 ── */
+.hero{background:linear-gradient(135deg,#0b2036 0%,#12385a 55%,#0f2a44 100%);color:#e8f0f7;position:relative;overflow:hidden;}
+.hero::after{content:"";position:absolute;right:-120px;top:-80px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(64,201,176,.22),transparent 65%);pointer-events:none;}
+.hero-inner{max-width:1360px;margin:0 auto;padding:46px 20px 52px;display:grid;grid-template-columns:1.35fr .85fr;gap:40px;align-items:center;position:relative;z-index:1;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(64,201,176,.14);border:1px solid rgba(64,201,176,.35);color:#9fe8da;font-size:12.5px;letter-spacing:.6px;padding:5px 12px;border-radius:99px;margin-bottom:16px;}
+.hero-tag i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2.4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-size:clamp(26px,3.4vw,40px);letter-spacing:.5px;color:#fff;margin-bottom:16px;}
+.hero-desc{font-size:15.5px;line-height:1.85;color:#b9cbdb;max-width:600px;margin-bottom:24px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px;}
+.btn-primary{background:var(--accent);color:#06302a;font-weight:700;padding:11px 22px;border-radius:var(--radius-btn);font-size:14.5px;box-shadow:0 6px 18px rgba(64,201,176,.28);transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(64,201,176,.36);}
+.btn-ghost{border:1px solid rgba(255,255,255,.28);color:#dbe7f1;padding:11px 20px;border-radius:var(--radius-btn);font-size:14.5px;transition:background .2s,border-color .2s;}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5);}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap;}
+.hero-stat b{display:block;font-size:22px;color:#fff;font-weight:800;line-height:1.2;}
+.hero-stat span{font-size:12.5px;color:#8ea9c1;}
+.hero-visual{position:relative;min-height:250px;}
+.hero-visual svg{width:100%;height:auto;}
+
+/* ── 容器与布局 ── */
+.layout{max-width:1360px;margin:0 auto;padding:34px 20px 10px;display:grid;grid-template-columns:186px minmax(0,1fr) 272px;gap:28px;align-items:start;}
+.channel-col{position:sticky;top:calc(var(--sticky-h) + 16px);}
+.channel-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);padding:14px 12px;box-shadow:var(--shadow);}
+.channel-title{font-size:12px;letter-spacing:1.5px;color:var(--text-3);padding:2px 8px 10px;border-bottom:1px solid var(--line-soft);margin-bottom:8px;}
+.channel-nav{display:flex;flex-direction:column;gap:1px;}
+.channel-nav a{display:flex;justify-content:space-between;align-items:center;padding:7px 9px;border-radius:7px;font-size:13.5px;color:var(--text-2);transition:background .15s,color .15s;}
+.channel-nav a span{font-size:11px;color:var(--text-3);}
+.channel-nav a:hover{background:var(--bg);color:var(--primary);}
+.channel-nav a.current{background:var(--accent-soft);color:var(--primary);font-weight:700;}
+.channel-nav a.current span{color:var(--primary-light);}
+
+.main-col{min-width:0;display:flex;flex-direction:column;gap:34px;}
+.side-col{min-width:0;display:flex;flex-direction:column;gap:22px;position:sticky;top:calc(var(--sticky-h) + 16px);}
+
+/* ── 板块通用 ── */
+.section{min-width:0;}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+.sec-head h2{font-size:20px;color:var(--primary);letter-spacing:.2px;}
+.sec-head .sec-sub{font-size:12.5px;color:var(--text-3);}
+.sec-lead{font-size:13.5px;color:var(--text-2);margin-bottom:16px;max-width:760px;}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow);}
+.pad{padding:20px 22px;}
+
+/* 领域概览 */
+.overview{font-size:14.6px;color:var(--text-2);line-height:1.9;}
+.overview strong{color:var(--primary);}
+.overview .kv{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.kv-tag{font-size:12.5px;background:var(--accent-soft);color:#10695c;border-radius:var(--radius-tag);padding:4px 10px;font-weight:600;}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:16px;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column;}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+.card-thumb{position:relative;aspect-ratio:4/3;background:var(--line-soft);}
+.card-thumb img{width:100%;height:100%;object-fit:cover;}
+.card-badge{position:absolute;left:9px;top:9px;background:rgba(8,26,44,.82);color:#c6f3ea;font-size:11.5px;padding:2px 8px;border-radius:5px;letter-spacing:.3px;}
+.card-body{padding:12px 13px 14px;display:flex;flex-direction:column;gap:7px;flex:1;}
+.card-title{font-size:14.5px;font-weight:700;color:var(--text);line-height:1.45;}
+.card:hover .card-title{color:var(--primary-light);}
+.card-desc{font-size:12.8px;color:var(--text-2);line-height:1.65;flex:1;}
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;}
+.tag{font-size:11.5px;color:var(--text-2);background:var(--bg);border:1px solid var(--line-soft);border-radius:var(--radius-tag);padding:1px 7px;}
+.card-meta{display:flex;justify-content:space-between;align-items:center;font-size:11.8px;color:var(--text-3);border-top:1px dashed var(--line-soft);padding-top:8px;}
+.hot{color:#c2410c;font-weight:700;}
+
+/* 动态列表 */
+.feed{display:flex;flex-direction:column;}
+.feed-item{display:grid;grid-template-columns:74px minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px dashed var(--line-soft);font-size:13.8px;}
+.feed-item:last-child{border-bottom:0;}
+.feed-time{font-size:12px;color:var(--text-3);padding-top:2px;font-variant-numeric:tabular-nums;}
+.feed-name{font-weight:700;color:var(--primary);margin-right:8px;}
+.feed-sum{color:var(--text-2);font-size:13px;}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:10px;}
+.cat-item{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 13px;transition:border-color .18s,background .18s,transform .18s;display:block;}
+.cat-item:hover{border-color:var(--accent);background:var(--accent-soft);transform:translateY(-2px);}
+.cat-item b{display:block;font-size:14px;color:var(--primary);margin-bottom:3px;}
+.cat-item span{font-size:11.8px;color:var(--text-3);}
+
+/* 深度解析 */
+.article{font-size:15px;color:var(--text-2);line-height:1.95;}
+.article h3{font-size:16.5px;color:var(--primary);margin:22px 0 10px;padding-left:11px;border-left:3px solid var(--accent);}
+.article h3:first-child{margin-top:2px;}
+.article p{margin-bottom:13px;}
+.article ul{padding-left:20px;}
+.article li{margin-bottom:7px;}
+.article .note{background:var(--bg);border-left:3px solid var(--warn);border-radius:0 8px 8px 0;padding:11px 14px;font-size:13.6px;color:var(--text-2);margin:14px 0;}
+.article table{width:100%;border-collapse:collapse;font-size:13.4px;margin:14px 0;}
+.article th,.article td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+.article th{background:var(--bg);color:var(--primary);font-weight:700;}
+.article strong{color:var(--primary);}
+.article .em{color:#b45309;font-weight:700;}
+
+/* 指南步骤 */
+.steps{display:flex;flex-direction:column;gap:12px;counter-reset:st;}
+.step{display:grid;grid-template-columns:34px minmax(0,1fr);gap:13px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px;}
+.step::before{counter-increment:st;content:counter(st,decimal-leading-zero);font-size:14px;font-weight:800;color:var(--accent);background:var(--accent-soft);border-radius:8px;display:flex;align-items:center;justify-content:center;height:30px;align-self:start;font-variant-numeric:tabular-nums;}
+.step b{display:block;font-size:14.2px;color:var(--primary);margin-bottom:3px;}
+.step p{font-size:13.2px;color:var(--text-2);margin:0;}
+
+/* FAQ */
+.faq details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;overflow:hidden;}
+.faq summary{cursor:pointer;padding:13px 16px;font-size:14.2px;font-weight:700;color:var(--primary);list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";color:var(--accent);font-size:18px;font-weight:700;line-height:1;flex-shrink:0;}
+.faq details[open] summary::after{content:"−";}
+.faq details[open] summary{border-bottom:1px solid var(--line-soft);}
+.faq .ans{padding:12px 16px 15px;font-size:13.5px;color:var(--text-2);line-height:1.8;}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:12px;}
+.cmt{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;}
+.cmt-top{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.avatar{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--primary-light),var(--accent));color:#fff;font-size:11.5px;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;}
+.cmt-name{font-size:12.8px;font-weight:700;color:var(--text);}
+.cmt-time{font-size:11.3px;color:var(--text-3);margin-left:auto;}
+.cmt-body{font-size:13.2px;color:var(--text-2);line-height:1.7;}
+
+/* 资讯 */
+.news{display:flex;flex-direction:column;gap:0;}
+.news-item{padding:14px 0;border-bottom:1px dashed var(--line-soft);}
+.news-item:last-child{border-bottom:0;}
+.news-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px;}
+.news-head h3{font-size:14.6px;color:var(--primary);}
+.news-date{font-size:11.8px;color:var(--text-3);font-variant-numeric:tabular-nums;}
+.news-sum{font-size:13.2px;color:var(--text-2);line-height:1.7;}
+
+/* 相关推荐 */
+.rec-list{display:flex;flex-wrap:wrap;gap:9px;}
+.rec{display:inline-flex;align-items:center;gap:7px;background:var(--panel);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:13px;color:var(--text-2);transition:border-color .18s,color .18s,background .18s;}
+.rec:hover{border-color:var(--accent);color:var(--primary);background:var(--accent-soft);}
+.rec i{font-style:normal;font-size:11px;color:var(--text-3);}
+
+/* 时间线 */
+.timeline{position:relative;padding-left:20px;}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line);}
+.tl-item{position:relative;padding:0 0 16px 14px;}
+.tl-item::before{content:"";position:absolute;left:-19px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 2px var(--accent-soft);}
+.tl-date{font-size:11.8px;color:var(--text-3);font-variant-numeric:tabular-nums;}
+.tl-title{font-size:13.8px;font-weight:700;color:var(--primary);margin:2px 0 3px;}
+.tl-desc{font-size:12.8px;color:var(--text-2);line-height:1.65;}
+
+/* 侧栏模块 */
+.side-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);box-shadow:var(--shadow);overflow:hidden;}
+.side-head{padding:13px 15px 10px;font-size:14px;font-weight:800;color:var(--primary);border-bottom:1px solid var(--line-soft);display:flex;justify-content:space-between;align-items:center;}
+.side-head em{font-style:normal;font-size:11.5px;color:var(--text-3);font-weight:400;}
+.rank-list{padding:6px 15px 12px;counter-reset:rk;}
+.rank-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px dashed var(--line-soft);font-size:13.2px;}
+.rank-item:last-child{border-bottom:0;}
+.rank-item::before{counter-increment:rk;content:counter(rk);font-size:11.5px;font-weight:800;color:var(--text-3);width:16px;flex-shrink:0;line-height:1.7;}
+.rank-item:nth-child(-n+3)::before{color:#c2410c;}
+.rank-item b{font-weight:700;color:var(--text);display:block;}
+.rank-item span{font-size:11.5px;color:var(--text-3);}
+.side-body{padding:12px 15px 15px;font-size:12.8px;color:var(--text-2);line-height:1.75;}
+.status-line{display:flex;justify-content:space-between;font-size:12.5px;padding:5px 0;border-bottom:1px dashed var(--line-soft);}
+.status-line:last-child{border-bottom:0;}
+.status-line b{color:var(--primary);font-weight:700;}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:1px;}
+.dot.ok{background:#16a34a;}
+.dot.mid{background:var(--warn);}
+.dot.bad{background:#dc2626;}
+
+/* 投稿互动条 */
+.submit-band{background:linear-gradient(120deg,#12385a,#0f2a44);color:#dbe7f1;border-radius:var(--radius-banner);padding:20px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:var(--shadow);}
+.submit-band b{font-size:16px;color:#fff;display:block;margin-bottom:3px;}
+.submit-band p{margin:0;font-size:13px;color:#a8c0d5;}
+.submit-band .btn-submit{background:var(--accent);color:#06302a;padding:10px 20px;font-size:14px;}
+
+/* 页脚 */
+.site-footer{background:var(--primary-dark);color:#9fb4c8;margin-top:44px;font-size:13px;}
+.footer-inner{max-width:1360px;margin:0 auto;padding:36px 20px 22px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;}
+.footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+.footer-brand svg{width:28px;height:28px;}
+.footer-brand b{color:#fff;font-size:15.5px;}
+.footer-desc{line-height:1.8;color:#8ea6bc;font-size:12.6px;}
+.footer-col h4{font-size:13px;color:#dbe7f1;margin-bottom:10px;letter-spacing:.5px;}
+.footer-col a{display:block;font-size:12.6px;color:#8ea6bc;padding:3px 0;transition:color .16s;}
+.footer-col a:hover{color:var(--accent);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);max-width:1360px;margin:0 auto;padding:14px 20px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:#6f889e;}
+
+/* 搜索高亮 & 无结果 */
+.dim{opacity:.32;}
+.search-empty{display:none;padding:16px;border:1px dashed var(--line);border-radius:10px;color:var(--text-3);font-size:13.5px;text-align:center;background:var(--panel);}
+.search-empty.show{display:block;}
+
+/* 返回顶部 */
+.to-top{position:fixed;right:22px;bottom:26px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--panel);color:var(--primary);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s,transform .25s;}
+.to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+.to-top:hover{background:var(--accent-soft);}
+
+/* 遮罩 */
+.overlay{position:fixed;inset:0;background:rgba(8,26,44,.45);z-index:55;display:none;}
+.overlay.show{display:block;}
+
+/* 响应式 */
+@media (max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr);}
+  .side-col{grid-column:1/-1;position:static;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));}
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+}
+@media (max-width:1024px){
+  :root{--sticky-h:100px;}
+  .header-inner{gap:14px;}
+  .main-nav{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:8px 14px 14px;box-shadow:var(--shadow);gap:2px;max-height:70vh;overflow-y:auto;z-index:58;}
+  .main-nav.open{display:flex;}
+  .main-nav a{padding:10px 12px;}
+  .hamburger{display:flex;}
+  .search-box input{width:110px;}
+  .site-header{position:relative;}
+  .sticky-wrap{position:sticky;}
+  .header-inner{height:60px;}
+  .channel-col{position:static;grid-column:1/-1;}
+  .channel-card{padding:10px;}
+  .channel-nav{flex-direction:row;overflow-x:auto;gap:6px;}
+  .channel-nav a{white-space:nowrap;padding:6px 11px;border:1px solid var(--line);}
+  .channel-nav a span{display:none;}
+  .channel-title{border:0;padding:0 0 8px;}
+  .layout{grid-template-columns:minmax(0,1fr);}
+}
+@media (max-width:740px){
+  :root{--sticky-h:96px;}
+  body{font-size:14.5px;}
+  .notice-inner{flex-wrap:wrap;gap:4px 16px;padding:6px 14px;font-size:12px;}
+  .notice-more{display:none;}
+  .header-inner{padding:0 14px;gap:10px;}
+  .brand-text{font-size:15px;}
+  .search-box{display:none;}
+  .btn-submit{padding:7px 11px;font-size:12.5px;}
+  .layout{padding:22px 14px 6px;gap:26px;}
+  .hero-inner{padding:32px 14px 36px;}
+  .hero-desc{font-size:14.5px;}
+  .hero-stats{gap:22px;}
+  .hero-stat b{font-size:19px;}
+  .card-grid{grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px;}
+  .comments{grid-template-columns:1fr;}
+  .cat-grid{grid-template-columns:repeat(auto-fill,minmax(132px,1fr));}
+  .feed-item{grid-template-columns:1fr;gap:2px;}
+  .feed-time{font-size:11.5px;}
+  .footer-inner{grid-template-columns:1fr 1fr;gap:22px;padding:26px 14px 16px;}
+  .footer-bottom{padding:12px 14px 20px;}
+  .pad{padding:16px 15px;}
+  .to-top{right:14px;bottom:16px;}
+  .article{font-size:14.4px;}
+  .article table{font-size:12.6px;}
+  .article th,.article td{padding:6px 7px;}
+  .submit-band{padding:16px 16px;}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-wrap">
+  <div class="notice-bar">
+    <div class="notice-inner">
+      <span class="notice-brand">海角社区今日大陆最新访问网址</span>
+      <span class="notice-item"><b>11-08</b>域名状态页更新至第 7 版，新增 2 条镜像测速记录</span>
+      <span class="notice-item"><b>11-06</b>登录验证码失效问题已在备用入口复现 3 次</span>
+      <a class="notice-more" href="#status">查看变更记录</a>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="/#top" aria-label="返回首页顶部">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#0f2a44"/>
+          <path d="M12 42c7-14 13-19 20-19s13 5 20 19" stroke="#40c9b0" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="21" r="4.2" fill="#f2b544"/>
+          <path d="M20 50h24" stroke="#2f6b8f" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">海角社区今日大陆最新访问网址</span>
+      </a>
+      <nav class="main-nav" id="mainNav" aria-label="主题导航">
+        <a href="#overview">领域概览</a>
+        <a href="#picks">精选条目</a>
+        <a href="#updates">更新动态</a>
+        <a href="#cats">分类入口</a>
+        <a href="#deep">深度解析</a>
+        <a href="#guide">访问指南</a>
+        <a href="#faq">常见问题</a>
+        <a href="#comments">用户评论</a>
+        <a href="#news">相关资讯</a>
+      </nav>
+      <div class="header-tools">
+        <div class="search-box">
+          <input id="searchInput" type="search" placeholder="搜索条目/板块名" aria-label="站内内容搜索">
+          <button id="searchBtn" type="button">搜索</button>
+        </div>
+        <button class="btn-submit" type="button" data-scroll="#contribute">投稿入口</button>
+        <button class="hamburger" id="hamburger" type="button" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mainNav"><span></span></button>
+      </div>
+    </div>
+  </header>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <span class="hero-tag"><i></i>域名与入口状态追踪 · 2026-11-08</span>
+        <h1>海角社区今日大陆最新访问网址</h1>
+        <p class="hero-desc">这里汇总大陆网络环境下站点域名变更、镜像入口可达性、登录验证异常与板块内容更新。每条入口记录都标注检测时间、响应延迟与失败原因，便于判断当前可用路径。</p>
+        <div class="hero-actions">
+          <a class="btn-primary" href="#status">查看入口状态清单</a>
+          <a class="btn-ghost" href="#guide">访问排查步骤</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat"><b>18</b><span>近 30 天记录域名</span></div>
+          <div class="hero-stat"><b>7</b><span>当前在线镜像入口</span></div>
+          <div class="hero-stat"><b>11-08</b><span>最近一次全量测速</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 420 300" role="presentation">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#40c9b0" stop-opacity=".55"/>
+              <stop offset="1" stop-color="#40c9b0" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <circle cx="300" cy="90" r="86" fill="url(#g1)"/>
+          <circle cx="300" cy="90" r="86" fill="none" stroke="#2f6b8f" stroke-width="1.2" stroke-dasharray="4 7"/>
+          <rect x="40" y="58" width="228" height="152" rx="12" fill="#0d2942" stroke="#2f6b8f" stroke-width="1.2"/>
+          <rect x="40" y="58" width="228" height="30" rx="12" fill="#12385a"/>
+          <circle cx="58" cy="73" r="4" fill="#40c9b0"/>
+          <circle cx="72" cy="73" r="4" fill="#f2b544"/>
+          <circle cx="86" cy="73" r="4" fill="#2f6b8f"/>
+          <rect x="56" y="102" width="120" height="9" rx="4" fill="#40c9b0" opacity=".85"/>
+          <rect x="56" y="122" width="184" height="7" rx="3.5" fill="#2f6b8f" opacity=".7"/>
+          <rect x="56" y="138" width="152" height="7" rx="3.5" fill="#2f6b8f" opacity=".5"/>
+          <rect x="56" y="160" width="62" height="26" rx="7" fill="#40c9b0" opacity=".9"/>
+          <rect x="128" y="160" width="62" height="26" rx="7" fill="none" stroke="#2f6b8f"/>
+          <path d="M268 168c22-10 34-34 30-58" stroke="#f2b544" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-dasharray="5 5"/>
+          <circle cx="298" cy="110" r="5" fill="#f2b544"/>
+          <text x="40" y="248" fill="#8ea9c1" font-size="12" font-family="monospace">trace · 2026-11-08 09:20</text>
+          <rect x="40" y="258" width="228" height="4" rx="2" fill="#1c4468"/>
+          <rect x="40" y="258" width="146" height="4" rx="2" fill="#40c9b0"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <!-- 左频道栏 -->
+    <aside class="channel-col">
+      <div class="channel-card">
+        <div class="channel-title">频道索引</div>
+        <nav class="channel-nav" aria-label="频道索引">
+          <a href="#overview">入口状态总览 <span>11-08</span></a>
+          <a href="#picks">可用镜像评测 <span>9</span></a>
+          <a href="#updates">域名变更动态 <span>10</span></a>
+          <a href="#cats">访问分类 <span>8</span></a>
+          <a href="#deep">深度解析 <span>规则</span></a>
+          <a href="#guide">排查步骤 <span>5</span></a>
+          <a href="#faq">常见问题 <span>6</span></a>
+          <a href="#comments">用户反馈 <span>16</span></a>
+          <a href="#news">相关资讯 <span>6</span></a>
+          <a href="#timeline">变更时间线 <span>近30天</span></a>
+          <a href="#contribute">投稿与互动 <span>开放</span></a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- 主内容 -->
+    <div class="main-col">
+
+      <!-- 1 领域概览 -->
+      <section class="section" id="overview">
+        <div class="sec-head"><h2>域名变更与入口可达性概览</h2><span class="sec-sub">记录口径：大陆常见宽带与移动网络</span></div>
+        <div class="panel pad">
+          <div class="overview">
+            <p>围绕站点可达性的信息大致分四类：<strong>域名变更公告</strong>、<strong>镜像入口测速</strong>、<strong>登录验证异常</strong>与<strong>内容板块更新</strong>。四类信息的时效性差别很大——域名变更通常由运营方在公告页首发，镜像测速只能靠逐条实测，验证码类问题则往往先出现在用户反馈里，最后才被整理成条目。</p>
+            <p>2026 年 10 月中旬至 11 月 8 日这段时间，可核对的记录集中在三个节点：10 月 19 日主域名解析切换到新 IP 段、10 月 31 日两个备用入口出现证书过期、11 月 6 日登录页图形验证码在部分网络下加载失败。三条记录分别落在公告层、测速层与反馈层，来源不同，可信度也不同。</p>
+            <p>需要区分的是"网址存在"和"网址能用"。前者只看域名是否注册、解析是否生效；后者要同时满足 DNS 解析正常、TLS 证书有效、页面资源加载完整、登录接口可响应四个条件。11 月 8 日的全量测速里，18 个记录域名中有 7 个四条件全通过，5 个卡在证书环节，4 个解析失败，2 个页面可开但登录接口超时。</p>
+            <div class="kv">
+              <span class="kv-tag">DNS 解析记录</span>
+              <span class="kv-tag">TLS 证书有效期</span>
+              <span class="kv-tag">镜像测速延迟</span>
+              <span class="kv-tag">图形验证码加载</span>
+              <span class="kv-tag">登录接口响应</span>
+              <span class="kv-tag">板块内容更新</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2 精选条目 -->
+      <section class="section" id="picks">
+        <div class="sec-head"><h2>可用入口与镜像实测条目</h2><span class="sec-sub">测速时间 2026-11-08 09:00—09:40</span></div>
+        <p class="sec-lead">下列条目按实测结果排列，每条标注网络环境、延迟区间与失败环节。延迟为三次请求中位数，不代表长期稳定。</p>
+        <div class="card-grid">
+          <article class="card">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/haijiao-entry01/400/300" width="400" height="300" loading="lazy" alt="主域名解析与证书状态检测界面截图"><span class="card-badge">主入口</span></div>
+            <div class="card-body">
+              <h3 class="card-title">主域名解析切换后状态</h3>
+              <p class="card-desc">10 月 19 日解析切至新 IP 段，11 月 8 日实测三次握手 180—240ms，证书剩余 62 天。电信线路稳定，移动线路偶发首包丢包。</p>
+              <div class="tag-row"><span class="tag">DNS 解析</span><span class="tag">TLS 证书</span><span class="tag">电信线路</span></div>
+              <div class="card-meta"><span class="hot">可用 · 延迟 210ms</span><span>11-08 09:05</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/haijiao-entry02/400/300" width="400" height="300" loading="lazy" alt="备用镜像入口测速面板与延迟曲线"><span class="card-badge">镜像 A</span></div>
+            <div class="card-body">
+              <h3 class="card-title">镜像 A 的证书过期问题</h3>
+              <p class="card-desc">10 月 31 日起证书链不完整，浏览器提示风险页。手动跳过可进入内容页，但登录接口返回 502，等于只能看不能登。</p>
+              <div class="tag-row"><span class="tag">证书过期</span><span class="tag">502 错误</span><span class="tag">只读访问</span></div>
+              <div class="card-meta"><span class="hot">部分可用</span><span>11-08 09:14</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/haijiao-entry03/400/300" width="400" height="300" loading="lazy" alt="图形验证码加载失败的登录页面"><span class="card-badge">登录</span></div>
+            <div class="card-body">
+              <h3 class="card-title">图形验证码加载失败复现</h3>
+              <p class="card-desc">11 月 6 日在两个镜像上各复现 3 次，验证码图片请求返回空响应。换浏览器无效，切换 DNS 后恢复正常，指向 CDN 节点问题。</p>
+              <div class="tag-row"><span class="tag">验证码</span><span class="tag">CDN 节点</span><span class="tag">DNS 切换</span></div>
+              <div class="card-meta"><span class="hot">已定位</span><span>11-06 21:30</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/haijiao-entry04/400/300" width="400" height="300" loading="lazy" alt="移动网络环境下入口响应时间对比图"><span class="card-badge">移动网络</span></div>
+            <div class="card-body">
+              <h3 class="card-title">移动网络下的入口差异</h3>
+              <p class="card-desc">同一入口在移动 5G 下首屏 1.9 秒，在宽带下 1.2 秒。差值主要来自图片资源，文本接口两边都在 300ms 内返回。</p>
+              <div class="tag-row"><span class="tag">移动 5G</span><span class="tag">首屏耗时</span><span class="tag">图片资源</span></div>
+              <div class="card-meta"><span class="hot">可用</span><span>11-08 09:28</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/haijiao-entry05/400/300" width="400" height="300" loading="lazy" alt="解析失败的域名与错误提示页面"><span class="card-badge">已失效</span></div>
+            <div class="card-body">
+              <h3 class="card-title">两组解析失败的旧域名</h3>
+              <p class="card-desc">10 月中旬前流传的两个域名 11 月 8 日查询均无 A 记录，whois 显示到期未续。继续尝试只会拿到 NXDOMAIN。</p>
+              <div class="tag-row"><span class="tag">NXDOMAIN</span><span class="tag">域名到期</span><span class="tag">旧记录</span></div>
+              <div class="card-meta"><span class="hot">不可用</span><span>11-08 09:36</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-thumb"><img src="https://picsum.photos/seed/haijiao-entry06/400/300" width="400" height="300" loading="lazy" alt="板块内容更新列表与发布时间"><span class="card-badge">内容</span></div>
+            <div class="card-body">
+              <h3 class="card-title">板块更新与入口的关系</h3>
+              <p class="card-desc">11 月 3 日至 8 日可正常打开的入口，内容页更新频率与主站一致；证书异常的两个镜像内容滞后约 36 小时，存在旧帖重复推送。</p>
+              <div class="tag-row"><span class="tag">内容同步</span><span class="tag">更新滞后</span><span class="tag">旧帖推送</span></div>
+              <div class="card-meta"><span class="hot">观察项</span><span>11-08 09:40</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3 更新动态 -->
+      <section class="section" id="updates">
+        <div class="sec-head"><h2>域名与入口更新记录</h2><span class="sec-sub">按时间倒序 · 10 天内</span></div>
+        <div class="panel pad">
+          <div class="feed">
+            <div class="feed-item"><div class="feed-time">11-08 09:40</div><div><span class="feed-name">全量测速第 7 版</span><span class="feed-sum">18 个域名中 7 个四条件通过，5 个证书异常，4 个无解析，2 个登录接口超时。</span></div></div>
+            <div class="feed-item"><div class="feed-time">11-07 22:15</div><div><span class="feed-name">镜像 B 恢复</span><span class="feed-sum">此前 11 月 2 日起返回 403，当晚恢复，测速延迟 260ms，证书剩余 41 天。</span></div></div>
+            <div class="feed-item"><div class="feed-time">11-06 21:30</div><div><span class="feed-name">验证码复现记录</span><span class="feed-sum">两个镜像各复现 3 次，图片请求空响应；切换 DNS 后恢复，判断为 CDN 节点缓存异常。</span></div></div>
+            <div class="feed-item"><div class="feed-time">11-05 10:02</div><div><span class="feed-name">移动线路首包丢包</span><span class="feed-sum">主域名在移动网络下连续 5 次请求有 2 次首包重传，与 10 月 19 日切换的 IP 段有关。</span></div></div>
+            <div class="feed-item"><div class="feed-time">11-03 16:48</div><div><span class="feed-name">内容同步核对</span><span class="feed-sum">三个可用入口的板块列表时间戳一致，两个证书异常镜像滞后约 36 小时。</span></div></div>
+            <div class="feed-item"><div class="feed-time">10-31 08:20</div><div><span class="feed-name">镜像 A 证书过期</span><span class="feed-sum">证书链不完整，浏览器风险提示；内容页可跳过进入，登录接口返回 502。</span></div></div>
+            <div class="feed-item"><div class="feed-time">10-27 14:05</div><div><span class="feed-name">旧域名到期</span><span class="feed-sum">两个 9 月流传的域名 whois 显示到期未续，A 记录清空，返回 NXDOMAIN。</span></div></div>
+            <div class="feed-item"><div class="feed-time">10-22 19:40</div><div><span class="feed-name">备用入口新增</span><span class="feed-sum">公告页新增 1 条备用入口，初始测速 310ms，11 月 7 日复测降至 260ms。</span></div></div>
+            <div class="feed-item"><div class="feed-time">10-19 11:12</div><div><span class="feed-name">主域名解析切换</span><span class="feed-sum">解析由旧 IP 段切至新段，切换后 6 小时内部分 DNS 仍返回旧记录，缓存 TTL 为 600 秒。</span></div></div>
+            <div class="feed-item"><div class="feed-time">10-15 09:00</div><div><span class="feed-name">登录接口响应波动</span><span class="feed-sum">当日 09:00—10:30 登录接口平均响应 1.4 秒，平时 300ms 以内，未给出原因说明。</span></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4 分类入口 -->
+      <section class="section" id="cats">
+        <div class="sec-head"><h2>访问场景分类</h2><span class="sec-sub">按使用目的划分</span></div>
+        <div class="cat-grid">
+          <a class="cat-item" href="#timeline"><b>域名变更公告</b><span>官方公告页首发记录</span></a>
+          <a class="cat-item" href="#picks"><b>镜像入口测速</b><span>延迟与失败环节实测</span></a>
+          <a class="cat-item" href="#faq"><b>登录验证异常</b><span>验证码与接口排查</span></a>
+          <a class="cat-item" href="#guide"><b>DNS 与证书检查</b><span>自查方法与工具口径</span></a>
+          <a class="cat-item" href="#news"><b>板块内容更新</b><span>可访问入口的内容差异</span></a>
+          <a class="cat-item" href="#comments"><b>用户反馈汇总</b><span>多网络环境实际体验</span></a>
+          <a class="cat-item" href="#deep"><b>入口可信度判断</b><span>来源层级与核对顺序</span></a>
+          <a class="cat-item" href="#contribute"><b>线索投稿</b><span>提交可用入口与截图</span></a>
+        </div>
+      </section>
+
+      <!-- 5 深度解析 -->
+      <section class="section" id="deep">
+        <div class="sec-head"><h2>入口可信度与失效判断</h2><span class="sec-sub">深度解析 · 约 850 字</span></div>
+        <div class="panel pad article">
+          <h3>同一域名"能用"要过四道关</h3>
+          <p>把可达性拆开看，四道关依次是 DNS 解析、TCP 握手、TLS 握手、应用层响应。10 月 19 日主域名切换 IP 段后，部分用户反馈"打不开"，实际情况是 DNS 缓存未过期——旧记录 TTL 为 600 秒，最长要等 10 分钟。这类故障的典型特征是：同一时刻，一部分人正常，一部分人超时，且超时者换网络后恢复。</p>
+          <p>第二道关失败的信号是连接超时而非报错页。11 月 5 日移动网络下 5 次请求 2 次首包重传，属于握手阶段丢包，与域名本身无关，换 DNS 解析器通常无效，只能等线路恢复或换网络。</p>
+          <p>第三道关失败会看到证书警告。镜像 A 从 10 月 31 日起证书链不完整，浏览器的"继续访问"只是跳过提示，并不修复证书，因此登录接口依旧 502。判断方法很直接：地址栏锁标是否正常、证书有效期是否在范围内、证书域名是否与访问域名一致。</p>
+          <p>第四道关失败表现为页面能开、功能不能用。11 月 6 日图形验证码空响应就属于这一层——HTML 正常返回，验证码图片请求无内容，登录流程卡死。此时换浏览器无效，改 DNS 后恢复，说明问题在 CDN 节点缓存，不在本地环境。</p>
+
+          <h3>公告、测速、反馈：三类来源的可信度不同</h3>
+          <p>公告页的信息权威但滞后，通常只写"已切换"不写"切换后哪些线路异常"；测速数据具体但样本有限，一次测速只代表当时那条线路；用户反馈最快但最杂，同一个现象可能有五种描述。把三者叠起来看，才能拼出完整状态。</p>
+          <table>
+            <thead><tr><th>来源类型</th><th>优势</th><th>缺失项</th><th>核对方式</th></tr></thead>
+            <tbody>
+              <tr><td>公告页</td><td>变更时间准确</td><td>不写线路差异与失败率</td><td>对照测速记录的时间戳</td></tr>
+              <tr><td>实测测速</td><td>延迟与失败环节具体</td><td>样本少，不代表长期</td><td>同日多次、多网络复测</td></tr>
+              <tr><td>用户反馈</td><td>发现新问题最快</td><td>缺网络环境与复现步骤</td><td>要求截图与时间点</td></tr>
+            </tbody>
+          </table>
+          <div class="note">一条反馈若只写"打不开"，没有网络运营商、时间点、错误提示三者中任意两项，就无法归入任何一层故障，只能当作线索而非记录。</div>
+
+          <h3>把"传播快"拆成可核对的环节</h3>
+          <p>新域名从出现到被大量转发，通常经过三个环节：公告页发布、社群截图转发、聚合页收录。10 月 22 日新增的备用入口，公告页 19:40 发布，当晚 21:00 前后在三个社群里出现截图，次日上午进入聚合页。三个环节各自可能引入错误——截图可能裁掉发布时间，聚合页可能把旧域名和新域名混排。</p>
+          <p>判断一条入口信息是否值得尝试，可以按这个顺序核对：域名注册时间是否在近 30 天内、证书签发时间是否与公告时间吻合、页面是否有与公告一致的版本号或更新日期。三项里缺两项，先当线索处理。10 月 27 日到期的两个旧域名，就是典型的"截图还在传、域名已经没了"。</p>
+
+          <h3>镜像不等于备份：内容滞后是隐性成本</h3>
+          <p>11 月 3 日的核对显示，两个证书异常镜像的板块列表时间戳比主站晚约 36 小时，且存在旧帖重复推送。这意味着即使页面能打开，看到的内容也可能已经过时一轮。对以浏览内容为目的的访问，镜像的可用性要额外加一条"内容新鲜度"；对只需要确认站点是否在运行的人，这条可以放宽。</p>
+          <p>另一个容易被忽略的点是登录态。镜像通常不共享主站会话，在 A 入口登录后在 B 入口仍需重新验证，验证码环节又恰好是 11 月 6 日出问题的那一环。两条问题叠加，体验上的"打不开"和"登不上"就容易被混为一谈。</p>
+        </div>
+      </section>
+
+      <!-- 6 访问指南 -->
+      <section class="section" id="guide">
+        <div class="sec-head"><h2>访问排查与判断顺序</h2><span class="sec-sub">按故障层级推进，不做无效重试</span></div>
+        <div class="steps">
+          <div class="step"><div><b>先确认是解析问题还是连接问题</b><p>页面提示"无法解析主机名"属解析层；一直转圈后超时属连接层。前者查 DNS 记录与缓存 TTL，后者换网络复测，别反复刷新。</p></div></div>
+          <div class="step"><div><b>看证书再决定是否继续</b><p>地址栏出现风险提示时，先看证书有效期与域名是否匹配。10 月 31 日起镜像 A 的证书链不完整，跳过提示只能看内容，登录一定失败。</p></div></div>
+          <div class="step"><div><b>区分"页面能开"和"功能可用"</b><p>验证码不显示、登录按钮无响应，都属于应用层。11 月 6 日的空响应换浏览器无效，改 DNS 恢复，说明要动的是解析而不是浏览器。</p></div></div>
+          <div class="step"><div><b>比对内容时间戳判断镜像新鲜度</b><p>同一板块在两个入口的置顶帖时间差超过 24 小时，说明镜像同步滞后。以浏览内容为目的时，优先选时间戳与主站一致的入口。</p></div></div>
+          <div class="step"><div><b>记录网络环境再反馈</b><p>反馈时写清运营商、时间点、错误提示三项。缺两项的反馈无法归层，只能等复现，处理速度会慢很多。</p></div></div>
+        </div>
+      </section>
+
+      <!-- 7 FAQ -->
+      <section class="section faq" id="faq">
+        <div class="sec-head"><h2>访问常见问题</h2><span class="sec-sub">6 个高频疑问</span></div>
+        <details>
+          <summary>域名解析切换后多久能正常打开？</summary>
+          <div class="ans">取决于旧记录的 TTL。10 月 19 日那次切换，缓存 TTL 是 600 秒，最长 10 分钟内陆续恢复；如果本地 DNS 或运营商缓存更长，可能要几小时。判断方法是对比同一网络下其他设备是否正常，若其他设备正常则属本地缓存，清缓存或换 DNS 解析器即可。</div>
+        </details>
+        <details>
+          <summary>浏览器提示证书风险还能继续访问吗？</summary>
+          <div class="ans">能打开内容页，但登录接口大概率不可用。镜像 A 从 10 月 31 日起证书链不完整，跳过提示后内容可读，登录返回 502。若目的是浏览内容，可以继续；若需要登录，换证书正常的入口更省事。</div>
+        </details>
+        <details>
+          <summary>验证码一直加载不出来是什么原因？</summary>
+          <div class="ans">11 月 6 日复现的情况是验证码图片请求返回空响应，HTML 本身正常。换浏览器无效，切换 DNS 后恢复，指向 CDN 节点缓存异常。排查顺序：先看图片请求状态码，再换 DNS，最后才考虑换设备。</div>
+        </details>
+        <details>
+          <summary>镜像入口的内容和主站一样吗？</summary>
+          <div class="ans">不完全一样。11 月 3 日核对显示，两个证书异常镜像的板块列表时间戳比主站晚约 36 小时，还有旧帖重复推送。以浏览内容为目的时，优先选时间戳与主站一致的入口。</div>
+        </details>
+        <details>
+          <summary>旧域名还能用吗？</summary>
+          <div class="ans">10 月 27 日到期的两个域名 A 记录已清空，查询返回 NXDOMAIN，whois 显示到期未续。继续尝试不会有结果，流传的截图多数是 9 月或 10 月初的旧图。</div>
+        </details>
+        <details>
+          <summary>怎么判断一个入口信息是不是新的？</summary>
+          <div class="ans">核对三项：域名注册时间是否在近 30 天内、证书签发时间是否与公告时间吻合、页面是否有与公告一致的版本号或更新日期。三项缺两项，先当线索处理，别急着转发。</div>
+        </details>
+      </section>
+
+      <!-- 8 用户评论 -->
+      <section class="section" id="comments">
+        <div class="sec-head"><h2>用户反馈与实测留言</h2><span class="sec-sub">16 条 · 含中性评价</span></div>
+        <div class="comments">
+          <div class="cmt"><div class="cmt-top"><span class="avatar">北</span><span class="cmt-name">北岸旧船</span><span class="cmt-time">11-08 10:12</span></div><p class="cmt-body">电信宽带，主域名今早 09:05 测的 210ms，登录也正常。移动卡在手机上首包重传两次，第二次才好。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">阿</span><span class="cmt-name">阿礅</span><span class="cmt-time">11-08 09:58</span></div><p class="cmt-body">镜像 A 那个证书警告还在，跳过之后能看帖子，但点登录直接 502。只读的话凑合。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">枝</span><span class="cmt-name">枝头三两只</span><span class="cmt-time">11-07 23:41</span></div><p class="cmt-body">11 月 6 号晚上验证码刷不出来，换了两个浏览器都不行，最后改 DNS 才好。折腾了半小时。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">老</span><span class="cmt-name">老周不喝茶</span><span class="cmt-time">11-07 22:03</span></div><p class="cmt-body">镜像 B 恢复了吗？我这边昨天还是 403，今天没试。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">Q</span><span class="cmt-name">Qiu_1993</span><span class="cmt-time">11-07 20:17</span></div><p class="cmt-body">镜像内容确实慢，置顶帖时间戳比主站晚了差不多一天半，还重复推了两次同一个帖。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">南</span><span class="cmt-name">南巷口</span><span class="cmt-time">11-07 18:35</span></div><p class="cmt-body">10 月 19 号那次切换我也碰到了，还以为被封了，结果第二天早上自己好了。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">半</span><span class="cmt-name">半杯凉白开</span><span class="cmt-time">11-06 22:48</span></div><p class="cmt-body">验证码那事我截图了，图片请求返回 200 但内容是空的，挺怪。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">小</span><span class="cmt-name">小满未满</span><span class="cmt-time">11-06 21:02</span></div><p class="cmt-body">想问下旧域名是不是彻底没了，我收藏夹里两个都打不开。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">K</span><span class="cmt-name">Kk_夜班</span><span class="cmt-time">11-05 11:26</span></div><p class="cmt-body">移动网今天首包丢了两次，切回 WiFi 就正常。客服说线路调整，没给具体时间。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">鱼</span><span class="cmt-name">鱼丸粗面</span><span class="cmt-time">11-05 09:14</span></div><p class="cmt-body">有点烦，每次换域名都要重新找。截图转发的那批人也不写时间，翻半天才发现是旧的。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">木</span><span class="cmt-name">木子李不言</span><span class="cmt-time">11-04 19:50</span></div><p class="cmt-body">其实只要证书正常、时间戳对得上，用哪个入口区别不大，延迟差一两百毫秒感知不明显。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">冬</span><span class="cmt-name">冬瓜排骨汤</span><span class="cmt-time">11-04 15:33</span></div><p class="cmt-body">镜像登录不共享会话，A 登完去 B 又要验证一次，赶上验证码抽风就很烦。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">A</span><span class="cmt-name">Anson_2077</span><span class="cmt-time">11-03 17:12</span></div><p class="cmt-body">今天顺手核了下三个入口的板块列表，时间戳一致，看来同步问题只在证书异常那两个上。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">七</span><span class="cmt-name">七号线的猫</span><span class="cmt-time">11-02 23:38</span></div><p class="cmt-body">跟访问没啥关系，就是想吐槽一下最近帖子质量，重复内容有点多。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">慢</span><span class="cmt-name">慢半拍</span><span class="cmt-time">11-02 12:07</span></div><p class="cmt-body">10 月 22 号新增的那个备用入口我一直在用，今天复测 260ms，比主域名稍慢但稳定。</p></div>
+          <div class="cmt"><div class="cmt-top"><span class="avatar">路</span><span class="cmt-name">路口修车摊</span><span class="cmt-time">11-01 08:55</span></div><p class="cmt-body">证书过期那个镜像别用，内容还慢一天，双份糟心。</p></div>
+        </div>
+      </section>
+
+      <!-- 9 相关资讯 -->
+      <section class="section" id="news">
+        <div class="sec-head"><h2>域名与访问相关资讯</h2><span class="sec-sub">6 条 · 含日期与摘要</span></div>
+        <div class="panel pad">
+          <div class="news">
+            <div class="news-item"><div class="news-head"><h3>主域名解析切至新 IP 段</h3><span class="news-date">2026-10-19</span></div><p class="news-sum">切换发生在 11:12，旧记录 TTL 600 秒。切换后 6 小时内部分运营商仍返回旧地址，导致"部分人能开、部分人打不开"的同时段现象。</p></div>
+            <div class="news-item"><div class="news-head"><h3>镜像 A 证书链不完整</h3><span class="news-date">2026-10-31</span></div><p class="news-sum">证书签发方与域名不匹配，浏览器提示风险页。内容页跳过提示可读，登录接口返回 502，截至 11 月 8 日未修复。</p></div>
+            <div class="news-item"><div class="news-head"><h3>图形验证码空响应复现</h3><span class="news-date">2026-11-06</span></div><p class="news-sum">21:30 前后在两个镜像各复现 3 次，图片请求状态码 200 但响应体为空。切换 DNS 后恢复，判断为 CDN 节点缓存。</p></div>
+            <div class="news-item"><div class="news-head"><h3>镜像 B 从 403 恢复</h3><span class="news-date">2026-11-07</span></div><p class="news-sum">11 月 2 日起返回 403，当晚 22:15 恢复，测速延迟 260ms，证书剩余 41 天。恢复后内容时间戳与主站对齐。</p></div>
+            <div class="news-item"><div class="news-head"><h3>两个旧域名到期未续</h3><span class="news-date">2026-10-27</span></div><p class="news-sum">whois 显示到期，A 记录清空，查询返回 NXDOMAIN。这两个域名在 9 月的社群截图里出现过，目前仍在被转发。</p></div>
+            <div class="news-item"><div class="news-head"><h3>登录接口响应波动记录</h3><span class="news-date">2026-10-15</span></div><p class="news-sum">09:00—10:30 平均响应 1.4 秒，平时 300ms 以内。持续 90 分钟后恢复，未给出原因说明，同期未出现验证码异常。</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10 相关推荐 -->
+      <section class="section" id="related">
+        <div class="sec-head"><h2>相关方向索引</h2><span class="sec-sub">具体条目与类型词</span></div>
+        <div class="rec-list">
+          <a class="rec" href="#picks">主域名解析记录 <i>10-19</i></a>
+          <a class="rec" href="#picks">镜像 A 证书状态 <i>未修复</i></a>
+          <a class="rec" href="#picks">镜像 B 恢复测速 <i>260ms</i></a>
+          <a class="rec" href="#faq">验证码空响应排查 <i>11-06</i></a>
+          <a class="rec" href="#guide">DNS 缓存 TTL 说明</a>
+          <a class="rec" href="#timeline">近 30 天变更时间线</a>
+          <a class="rec" href="#news">旧域名到期记录 <i>10-27</i></a>
+          <a class="rec" href="#deep">入口可信度核对顺序</a>
+        </div>
+      </section>
+
+      <!-- 11 补充：时间线与状态面板 -->
+      <section class="section" id="timeline">
+        <div class="sec-head"><h2>域名变更时间线</h2><span class="sec-sub">2026-10-15 至 2026-11-08</span></div>
+        <div class="panel pad">
+          <div class="timeline">
+            <div class="tl-item"><div class="tl-date">2026-11-08</div><div class="tl-title">全量测速第 7 版发布</div><div class="tl-desc">18 个域名，7 个四条件通过，5 个证书异常，4 个无解析，2 个登录接口超时。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-11-07</div><div class="tl-title">镜像 B 恢复</div><div class="tl-desc">22:15 恢复，延迟 260ms，证书剩余 41 天，内容时间戳与主站对齐。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-11-06</div><div class="tl-title">验证码空响应复现</div><div class="tl-desc">两个镜像各 3 次，切换 DNS 后恢复，指向 CDN 节点缓存异常。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-11-03</div><div class="tl-title">内容同步核对</div><div class="tl-desc">三个可用入口时间戳一致，两个证书异常镜像滞后约 36 小时。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-10-31</div><div class="tl-title">镜像 A 证书过期</div><div class="tl-desc">证书链不完整，内容可读，登录 502，截至 11 月 8 日未修复。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-10-27</div><div class="tl-title">两个旧域名到期</div><div class="tl-desc">whois 到期未续，A 记录清空，返回 NXDOMAIN。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-10-22</div><div class="tl-title">新增一条备用入口</div><div class="tl-desc">公告页 19:40 发布，初始测速 310ms，11 月 7 日复测 260ms。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-10-19</div><div class="tl-title">主域名解析切换</div><div class="tl-desc">11:12 切换，旧记录 TTL 600 秒，6 小时内部分运营商仍返回旧地址。</div></div>
+            <div class="tl-item"><div class="tl-date">2026-10-15</div><div class="tl-title">登录接口响应波动</div><div class="tl-desc">09:00—10:30 平均 1.4 秒，平时 300ms 以内，未给出原因说明。</div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 12 投稿互动 -->
+      <section class="section" id="contribute">
+        <div class="submit-band">
+          <div>
+            <b>提交可用入口与实测截图</b>
+            <p>请附运营商、时间点、错误提示三项，缺两项的线索只做记录不做结论。投稿入口开放中。</p>
+          </div>
+          <button class="btn-submit" type="button" id="submitBtn">我要投稿</button>
+        </div>
+        <div class="search-empty" id="searchEmpty">没有匹配的条目，换个关键词试试，比如“证书”“验证码”“镜像”。</div>
+      </section>
+
+    </div>
+
+    <!-- 右辅助栏 -->
+    <aside class="side-col" id="status">
+      <div class="side-card">
+        <div class="side-head">入口状态面板 <em>11-08 09:40</em></div>
+        <div class="side-body">
+          <div class="status-line"><span><i class="dot ok"></i>主域名</span><b>可用 210ms</b></div>
+          <div class="status-line"><span><i class="dot mid"></i>镜像 A</span><b>证书异常</b></div>
+          <div class="status-line"><span><i class="dot ok"></i>镜像 B</span><b>可用 260ms</b></div>
+          <div class="status-line"><span><i class="dot mid"></i>备用入口</span><b>可用 260ms</b></div>
+          <div class="status-line"><span><i class="dot bad"></i>旧域名 ×2</span><b>无解析</b></div>
+          <div class="status-line"><span><i class="dot mid"></i>登录验证码</span><b>节点异常</b></div>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="side-head">近 7 天访问故障排行</div>
+        <div class="rank-list">
+          <div class="rank-item"><div><b>验证码加载失败</b><span>11-06 起 · 复现 6 次</span></div></div>
+          <div class="rank-item"><div><b>镜像 A 证书警告</b><span>10-31 起 · 未修复</span></div></div>
+          <div class="rank-item"><div><b>移动线路首包重传</b><span>11-05 · 5 次中 2 次</span></div></div>
+          <div class="rank-item"><div><b>镜像内容滞后</b><span>11-03 核对 · 约 36 小时</span></div></div>
+          <div class="rank-item"><div><b>旧域名截图误传</b><span>10-27 到期 · 仍在转发</span></div></div>
+        </div>
+      </div>
+      <div class="side-card">
+        <div class="side-head">核对提示</div>
+        <div class="side-body">
+          域名注册时间、证书签发时间、页面版本号三项中缺两项，先按线索处理。测速数据只代表当时线路，跨运营商对比意义有限。
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#12385a"/>
+          <path d="M12 42c7-14 13-19 20-19s13 5 20 19" stroke="#40c9b0" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <circle cx="32" cy="21" r="4.2" fill="#f2b544"/>
+        </svg>
+        <b>海角社区今日大陆最新访问网址</b>
+      </div>
+      <p class="footer-desc">覆盖 2026 年 10 月 15 日至 11 月 8 日的域名变更与入口测速记录，条目类型包括公告摘要、实测数据、故障复现记录与用户反馈。测速记录按工作日更新，故障复现按实际出现频次补录。</p>
+    </div>
+    <div class="footer-col">
+      <h4>记录类型</h4>
+      <a href="#updates">域名变更动态</a>
+      <a href="#picks">镜像入口测速</a>
+      <a href="#timeline">变更时间线</a>
+      <a href="#news">相关资讯</a>
+    </div>
+    <div class="footer-col">
+      <h4>排查入口</h4>
+      <a href="#guide">访问排查步骤</a>
+      <a href="#faq">常见问题</a>
+      <a href="#deep">可信度判断</a>
+      <a href="#comments">用户反馈</a>
+    </div>
+    <div class="footer-col">
+      <h4>互动</h4>
+      <a href="#contribute">投稿入口</a>
+      <a href="#cats">访问分类</a>
+      <a href="#status">入口状态面板</a>
+      <a href="#top">返回顶部</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>内容含示例条目，测速数据以实测记录为准。</span>
+    <span>最近更新：2026-11-08 · 对应全量测速第 7 版</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="返回顶部">↑</button>
+
+<script>
+(function(){
+  var nav=document.getElementById('mainNav');
+  var burger=document.getElementById('hamburger');
+  var overlay=document.getElementById('overlay');
+  function closeNav(){
+    nav.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    overlay.classList.remove('show');
+  }
+  function openNav(){
+    nav.classList.add('open');
+    burger.setAttribute('aria-expanded','true');
+    overlay.classList.add('show');
+  }
+  burger.addEventListener('click',function(){
+    if(nav.classList.contains('open')){closeNav();}else{openNav();}
+  });
+  overlay.addEventListener('click',closeNav);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeNav();}
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){closeNav();}
+  });
+
+  // 滚动高亮
+  var links=Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var targets=links.map(function(a){
+    var id=a.getAttribute('href').replace('/#','').replace('#','');
+    return document.getElementById(id);
+  });
+  function onScroll(){
+    var pos=window.scrollY+140;
+    var idx=-1;
+    targets.forEach(function(t,i){
+      if(t && t.offsetTop<=pos){idx=i;}
+    });
+    links.forEach(function(a,i){
+      a.classList.toggle('active',i===idx);
+    });
+    var top=document.getElementById('toTop');
+    if(window.scrollY>window.innerHeight*0.8){top.classList.add('show');}
+    else{top.classList.remove('show');}
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  document.getElementById('toTop').addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  // 投稿按钮
+  var submitBtn=document.getElementById('submitBtn');
+  if(submitBtn){
+    submitBtn.addEventListener('click',function(){
+      submitBtn.textContent='投稿通道已记录';
+      submitBtn.disabled=true;
+    });
+  }
+  var headerSubmit=document.querySelector('.btn-submit[data-scroll]');
+  if(headerSubmit){
+    headerSubmit.addEventListener('click',function(){
+      var el=document.getElementById('contribute');
+      if(el){el.scrollIntoView({behavior:'smooth'});}
+      closeNav();
+    });
+  }
+
+  // 本地搜索筛选
+  var searchInput=document.getElementById('searchInput');
+  var searchBtn=document.getElementById('searchBtn');
+  var emptyBox=document.getElementById('searchEmpty');
+  function runSearch(){
+    var q=(searchInput.value||'').trim().toLowerCase();
+    var blocks=document.querySelectorAll('.main-col .card, .main-col .feed-item, .main-col .cat-item, .main-col .rec, .main-col .cmt, .main-col .news-item, .main-col .tl-item, .main-col .step, .main-col .faq details');
+    if(!q){
+      blocks.forEach(function(b){b.classList.remove('dim');});
+      emptyBox.classList.remove('show');
+      return;
+    }
+    var hit=0;
+    blocks.forEach(function(b){
+      var txt=b.textContent.toLowerCase();
+      if(txt.indexOf(q)>-1){b.classList.remove('dim');hit++;}
+      else{b.classList.add('dim');}
+    });
+    emptyBox.classList.toggle('show',hit===0);
+  }
+  searchBtn.addEventListener('click',runSearch);
+  searchInput.addEventListener('keydown',function(e){
+    if(e.key==='Enter'){e.preventDefault();runSearch();}
+  });
+  searchInput.addEventListener('input',function(){
+    if(!searchInput.value){runSearch();}
+  });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"海角社区今日大陆最新访问网址",
+  "description":"汇总域名变更记录、镜像入口状态、登录异常排查与社区板块更新，适合关注站点可达性与访问方式变化的用户查阅。",
+  "inLanguage":"zh-CN",
+  "about":["域名变更","镜像入口测速","登录验证异常","内容板块更新"]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"域名解析切换后多久能正常打开？","acceptedAnswer":{"@type":"Answer","text":"取决于旧记录的 TTL。10 月 19 日那次切换缓存 TTL 是 600 秒，最长 10 分钟内陆续恢复；本地 DNS 或运营商缓存更长时可能几小时。对比同网络其他设备可判断是否属本地缓存。"}},
+    {"@type":"Question","name":"浏览器提示证书风险还能继续访问吗？","acceptedAnswer":{"@type":"Answer","text":"能打开内容页，但登录接口大概率不可用。镜像 A 从 10 月 31 日起证书链不完整，跳过提示后内容可读，登录返回 502。浏览内容可继续，需要登录则应换证书正常的入口。"}},
+    {"@type":"Question","name":"验证码一直加载不出来是什么原因？","acceptedAnswer":{"@type":"Answer","text":"11 月 6 日复现的情况是验证码图片请求返回空响应，HTML 本身正常。换浏览器无效，切换 DNS 后恢复，指向 CDN 节点缓存异常。排查顺序为看图片请求状态码、换 DNS、最后才换设备。"}},
+    {"@type":"Question","name":"镜像入口的内容和主站一样吗？","acceptedAnswer":{"@type":"Answer","text":"不完全一样。11 月 3 日核对显示两个证书异常镜像的板块列表时间戳比主站晚约 36 小时，还有旧帖重复推送。以浏览内容为目的时优先选时间戳与主站一致的入口。"}},
+    {"@type":"Question","name":"旧域名还能用吗？","acceptedAnswer":{"@type":"Answer","text":"10 月 27 日到期的两个域名 A 记录已清空，查询返回 NXDOMAIN，whois 显示到期未续。流传的截图多数是 9 月或 10 月初的旧图。"}},
+    {"@type":"Question","name":"怎么判断一个入口信息是不是新的？","acceptedAnswer":{"@type":"Answer","text":"核对三项：域名注册时间是否在近 30 天内、证书签发时间是否与公告时间吻合、页面是否有与公告一致的版本号或更新日期。三项缺两项先当线索处理。"}}
+  ]
+}
+</script>
+</body>
+                                      </html>
