@@ -1,0 +1,1684 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>福利社zxfuli - 影视福利资源条目聚合</title>
+<meta name="description" content="福利社zxfuli 聚合影视福利向资源条目，覆盖限时免费片单、会员折扣、修复版老片、动画番剧与投稿互动，适合关注性价比观影与资源更新的用户查阅。">
+<meta name="keywords" content="福利社zxfuli">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c2410c'/%3E%3Cpath d='M20 18h24v6H26v6h14v6H26v10h-6z' fill='%23fff7ed'/%3E%3Ccircle cx='46' cy='44' r='6' fill='%23fbbf24'/%3E%3C/svg%3E">
+<style>
+:root{
+  --brand:#c2410c;
+  --brand-light:#ea580c;
+  --brand-pale:#fff1e7;
+  --brand-deep:#7c2d12;
+  --accent:#0f766e;
+  --accent-pale:#e6f4f1;
+  --bg:#fdfaf6;
+  --panel:#ffffff;
+  --panel-2:#fbf4ec;
+  --ink-1:#231a14;
+  --ink-2:#5b4a3e;
+  --ink-3:#8a7a6d;
+  --line:#ecdfd2;
+  --radius-card:14px;
+  --radius-btn:9px;
+  --radius-tag:6px;
+  --radius-banner:18px;
+  --shadow-1:0 1px 2px rgba(80,45,20,.06),0 2px 8px rgba(80,45,20,.05);
+  --shadow-2:0 6px 18px rgba(80,45,20,.12),0 2px 6px rgba(80,45,20,.07);
+  --header-h:60px;
+  --notice-h:38px;
+  --gap:22px;
+  --maxw:1340px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + var(--notice-h) + 12px)}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink-1);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,sans-serif;
+  font-size:15.5px;
+  line-height:1.78;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{margin:0;line-height:1.35;font-weight:700}
+p{margin:0 0 12px}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ============ 吸顶公告条 ============ */
+.notice-bar{
+  position:sticky;top:0;z-index:60;
+  height:var(--notice-h);
+  background:linear-gradient(90deg,var(--brand-deep),var(--brand) 55%,var(--brand-light));
+  color:#fff5ec;
+  font-size:13px;
+  display:flex;align-items:center;
+  overflow:hidden;
+}
+.notice-bar .wrap{
+  max-width:var(--maxw);margin:0 auto;width:100%;
+  padding:0 20px;
+  display:flex;align-items:center;gap:16px;
+  overflow:hidden;
+}
+.notice-brand{
+  font-weight:800;letter-spacing:.3px;white-space:nowrap;
+  padding-right:14px;border-right:1px solid rgba(255,255,255,.32);
+}
+.notice-scroll{
+  display:flex;gap:34px;white-space:nowrap;
+  animation:noticeMove 34s linear infinite;
+}
+.notice-scroll:hover{animation-play-state:paused}
+.notice-scroll span{display:inline-flex;align-items:center;gap:7px}
+.notice-scroll b{color:#ffd8a8;font-weight:700}
+@keyframes noticeMove{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+
+/* ============ 页头 ============ */
+.site-header{
+  position:sticky;top:var(--notice-h);z-index:55;
+  height:var(--header-h);
+  background:rgba(253,250,246,.92);
+  backdrop-filter:saturate(1.6) blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:var(--maxw);margin:0 auto;height:100%;
+  padding:0 20px;
+  display:flex;align-items:center;gap:26px;
+}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo svg{width:34px;height:34px}
+.logo-text{font-size:19px;font-weight:800;letter-spacing:.4px;color:var(--brand-deep)}
+.main-nav{display:flex;gap:4px;flex:1;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+.main-nav::-webkit-scrollbar{display:none}
+.main-nav a{
+  padding:7px 12px;border-radius:var(--radius-btn);
+  font-size:14.5px;color:var(--ink-2);white-space:nowrap;
+  transition:background .18s,color .18s;
+}
+.main-nav a:hover{background:var(--brand-pale);color:var(--brand)}
+.main-nav a.active{background:var(--brand);color:#fff}
+.header-search{
+  display:flex;align-items:center;gap:6px;
+  border:1px solid var(--line);background:var(--panel);
+  border-radius:var(--radius-btn);padding:4px 4px 4px 12px;
+  flex-shrink:0;
+}
+.header-search input{
+  border:0;outline:0;background:transparent;
+  font-size:14px;width:132px;color:var(--ink-1);
+}
+.header-search button{
+  border:0;background:var(--brand);color:#fff;
+  border-radius:6px;padding:5px 11px;font-size:13.5px;
+}
+.header-search button:hover{background:var(--brand-light)}
+.burger{
+  display:none;border:1px solid var(--line);background:var(--panel);
+  border-radius:var(--radius-btn);width:40px;height:40px;
+  align-items:center;justify-content:center;flex-direction:column;gap:4px;
+}
+.burger span{display:block;width:18px;height:2px;background:var(--ink-1);border-radius:2px}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(900px 340px at 88% -8%,rgba(234,88,12,.20),transparent 62%),
+    radial-gradient(700px 300px at 4% 108%,rgba(15,118,110,.14),transparent 60%),
+    linear-gradient(160deg,#fff8f1,#fdf1e4 60%,#fbe9da);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  max-width:var(--maxw);margin:0 auto;padding:48px 20px 46px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:40px;align-items:center;position:relative;z-index:2;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#fff;border:1px solid #f3d6bd;color:var(--brand);
+  border-radius:999px;padding:5px 14px;font-size:13px;font-weight:600;
+  box-shadow:var(--shadow-1);
+}
+.hero h1{
+  font-size:clamp(30px,4.4vw,46px);
+  letter-spacing:-.5px;margin:16px 0 14px;color:var(--brand-deep);
+}
+.hero-desc{
+  font-size:16px;color:var(--ink-2);max-width:560px;margin-bottom:22px;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.btn-primary,.btn-ghost{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 22px;border-radius:var(--radius-btn);
+  font-size:15px;font-weight:600;border:1px solid transparent;
+  transition:transform .16s,box-shadow .16s,background .16s;
+}
+.btn-primary{background:var(--brand);color:#fff;box-shadow:var(--shadow-1)}
+.btn-primary:hover{background:var(--brand-light);transform:translateY(-2px);box-shadow:var(--shadow-2)}
+.btn-ghost{background:#fff;color:var(--brand-deep);border-color:#f0d5bd}
+.btn-ghost:hover{background:var(--brand-pale);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap}
+.hero-stats div{line-height:1.3}
+.hero-stats b{display:block;font-size:22px;color:var(--brand-deep);font-weight:800}
+.hero-stats span{font-size:12.5px;color:var(--ink-3)}
+
+/* 首屏视觉构图 */
+.hero-visual{position:relative;height:330px}
+.hero-card{
+  position:absolute;background:#fff;border-radius:var(--radius-card);
+  box-shadow:var(--shadow-2);border:1px solid #f2e2d2;overflow:hidden;
+}
+.hv-1{width:62%;top:0;left:0;transform:rotate(-2.4deg);animation:floatA 7s ease-in-out infinite}
+.hv-2{width:56%;bottom:0;right:0;transform:rotate(2.8deg);animation:floatB 8s ease-in-out infinite}
+.hv-1 .thumb,.hv-2 .thumb{height:104px;background:linear-gradient(120deg,#fb923c,#ea580c 60%,#b45309)}
+.hv-2 .thumb{background:linear-gradient(120deg,#0f766e,#0d9488 60%,#115e59)}
+.hero-card .meta{padding:10px 12px 12px}
+.hero-card .meta b{font-size:13.5px;display:block;color:var(--ink-1)}
+.hero-card .meta i{font-style:normal;font-size:12px;color:var(--ink-3)}
+.hv-ticks{
+  position:absolute;left:50%;top:50%;width:74px;height:74px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;background:rgba(255,255,255,.82);
+  border:1px solid #f0d5bd;display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:var(--brand);font-size:13px;letter-spacing:1px;
+  box-shadow:var(--shadow-1);z-index:3;
+}
+@keyframes floatA{0%,100%{transform:rotate(-2.4deg) translateY(0)}50%{transform:rotate(-2.4deg) translateY(-7px)}}
+@keyframes floatB{0%,100%{transform:rotate(2.8deg) translateY(0)}50%{transform:rotate(2.8deg) translateY(6px)}}
+
+/* ============ 主骨架：三栏门户 ============ */
+.layout{
+  max-width:var(--maxw);margin:0 auto;padding:34px 20px 10px;
+  display:grid;
+  grid-template-columns:172px minmax(0,1fr) 246px;
+  gap:var(--gap);
+  align-items:start;
+}
+.channel-col{position:sticky;top:calc(var(--notice-h) + var(--header-h) + 18px)}
+.channel-card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-card);padding:14px 10px;
+  box-shadow:var(--shadow-1);
+}
+.channel-card h2{
+  font-size:13px;color:var(--ink-3);font-weight:700;
+  letter-spacing:1.4px;padding:0 8px 9px;margin-bottom:4px;
+  border-bottom:1px solid var(--line);
+}
+.channel-card a{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:7px 8px;border-radius:8px;font-size:14px;color:var(--ink-2);
+  transition:background .16s,color .16s;
+}
+.channel-card a:hover{background:var(--brand-pale);color:var(--brand-deep)}
+.channel-card a.on{background:var(--brand-pale);color:var(--brand-deep);font-weight:700}
+.channel-card a em{font-style:normal;font-size:11.5px;color:var(--ink-3);font-weight:400}
+.channel-note{
+  margin-top:14px;background:var(--accent-pale);border:1px solid #cfe6e1;
+  border-radius:var(--radius-card);padding:12px;font-size:12.5px;color:#115e59;line-height:1.65;
+}
+
+.main-col{min-width:0}
+.aside-col{position:sticky;top:calc(var(--notice-h) + var(--header-h) + 18px);display:flex;flex-direction:column;gap:18px}
+
+/* ============ 通用板块 ============ */
+.section{margin-bottom:42px;scroll-margin-top:calc(var(--notice-h) + var(--header-h) + 16px)}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.section-head h2{
+  font-size:22px;color:var(--brand-deep);letter-spacing:-.2px;
+  position:relative;padding-left:14px;
+}
+.section-head h2::before{
+  content:"";position:absolute;left:0;top:6px;bottom:6px;width:5px;
+  border-radius:3px;background:linear-gradient(180deg,var(--brand-light),var(--brand));
+}
+.section-head .sub{font-size:13px;color:var(--ink-3);line-height:1.6}
+.section-head .more{font-size:13.5px;color:var(--brand);font-weight:600;white-space:nowrap}
+.section-head .more:hover{text-decoration:underline}
+
+/* 领域概览 */
+.overview-panel{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-banner);padding:26px 28px;
+  box-shadow:var(--shadow-1);
+  display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:28px;
+}
+.overview-panel p{font-size:15px;color:var(--ink-2);line-height:1.92}
+.overview-panel p:last-child{margin-bottom:0}
+.overview-side{
+  background:var(--panel-2);border-radius:var(--radius-card);
+  padding:16px;border:1px solid #f2e2d2;
+}
+.overview-side h3{font-size:14px;color:var(--brand-deep);margin-bottom:10px}
+.ov-item{display:flex;gap:9px;font-size:13px;color:var(--ink-2);padding:6px 0;border-bottom:1px dashed #ecdccb}
+.ov-item:last-child{border-bottom:0}
+.ov-item b{color:var(--brand);font-weight:800;flex-shrink:0}
+
+/* 精选卡片 */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pick-card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-card);overflow:hidden;
+  box-shadow:var(--shadow-1);
+  display:flex;flex-direction:column;
+  transition:transform .18s,box-shadow .18s;
+}
+.pick-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.pick-card .cover{position:relative}
+.pick-card .cover img{width:100%;height:132px;object-fit:cover}
+.pick-card .cover .badge{
+  position:absolute;left:10px;top:10px;
+  background:rgba(124,45,18,.9);color:#ffe8d3;
+  font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:5px;
+}
+.pick-card .body{padding:13px 14px 15px;flex:1;display:flex;flex-direction:column}
+.pick-card h3{font-size:15.5px;margin-bottom:7px;color:var(--ink-1);line-height:1.45}
+.pick-card .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px}
+.pick-card .tags span{
+  font-size:11.5px;color:var(--accent);background:var(--accent-pale);
+  padding:1px 7px;border-radius:5px;
+}
+.pick-card .desc{font-size:13px;color:var(--ink-2);line-height:1.7;flex:1}
+.pick-card .foot{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:11px;padding-top:9px;border-top:1px dashed #efdfd0;
+  font-size:12px;color:var(--ink-3);
+}
+.pick-card .foot b{color:var(--brand);font-weight:800;font-size:12.5px}
+
+/* 最新更新列表 */
+.update-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden}
+.update-item{
+  display:grid;grid-template-columns:66px minmax(0,1fr) auto;
+  gap:14px;align-items:center;
+  padding:13px 18px;border-bottom:1px solid #f5ece3;
+  transition:background .15s;
+}
+.update-item:last-child{border-bottom:0}
+.update-item:hover{background:var(--panel-2)}
+.update-item .dt{
+  font-size:12px;color:var(--brand);font-weight:700;
+  background:var(--brand-pale);border-radius:6px;text-align:center;padding:4px 0;line-height:1.3;
+}
+.update-item .dt i{display:block;font-style:normal;font-size:10.5px;color:var(--ink-3);font-weight:500}
+.update-item h3{font-size:14.8px;margin-bottom:2px}
+.update-item p{font-size:13px;color:var(--ink-2);margin:0;line-height:1.62}
+.update-item .tag{
+  font-size:11.5px;color:var(--ink-3);border:1px solid var(--line);
+  border-radius:5px;padding:2px 8px;white-space:nowrap;background:#fff;
+}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:15px 15px 14px;transition:border-color .16s,transform .16s,box-shadow .16s;
+  display:block;
+}
+.cat-item:hover{border-color:var(--brand-light);transform:translateY(-2px);box-shadow:var(--shadow-1)}
+.cat-item b{display:block;font-size:14.5px;color:var(--brand-deep);margin-bottom:4px}
+.cat-item span{font-size:12.5px;color:var(--ink-3);line-height:1.6}
+.cat-item em{
+  display:block;margin-top:7px;font-style:normal;font-size:11.5px;color:var(--accent);
+}
+
+/* 筛选条 */
+.filter-bar{
+  display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;
+  background:var(--panel-2);border:1px solid #f2e2d2;border-radius:var(--radius-btn);
+  padding:10px 12px;
+}
+.filter-bar button{
+  border:1px solid var(--line);background:#fff;color:var(--ink-2);
+  border-radius:6px;padding:4px 12px;font-size:13px;
+  transition:background .15s,color .15s,border-color .15s;
+}
+.filter-bar button:hover{border-color:var(--brand-light);color:var(--brand)}
+.filter-bar button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.filter-empty{
+  display:none;padding:22px;text-align:center;color:var(--ink-3);
+  background:var(--panel);border:1px dashed var(--line);border-radius:var(--radius-card);font-size:14px;
+}
+
+/* 深度解析 */
+.deep-article{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-banner);padding:30px 32px;
+  box-shadow:var(--shadow-1);
+}
+.deep-article h3{
+  font-size:18.5px;color:var(--brand-deep);margin:26px 0 11px;
+  padding-left:11px;border-left:4px solid var(--brand-light);
+}
+.deep-article h3:first-child{margin-top:0}
+.deep-article p{font-size:15px;color:var(--ink-2);line-height:1.94}
+.deep-article ul{margin:0 0 14px;padding-left:0}
+.deep-article ul li{
+  position:relative;padding-left:18px;font-size:14.6px;color:var(--ink-2);
+  line-height:1.85;margin-bottom:6px;
+}
+.deep-article ul li::before{
+  content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;
+  border-radius:50%;background:var(--brand-light);
+}
+.deep-quote{
+  border-left:4px solid var(--accent);background:var(--accent-pale);
+  padding:13px 18px;border-radius:0 10px 10px 0;margin:16px 0;
+  font-size:14.5px;color:#0f4f4a;line-height:1.8;
+}
+.compare-table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:13.8px}
+.compare-table th,.compare-table td{
+  border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;
+}
+.compare-table th{background:var(--panel-2);color:var(--brand-deep);font-weight:700;white-space:nowrap}
+.compare-table td{color:var(--ink-2);line-height:1.7}
+
+/* 指南步骤 */
+.guide-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.step-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:17px 18px;position:relative;box-shadow:var(--shadow-1);
+}
+.step-card .num{
+  position:absolute;right:16px;top:12px;font-size:26px;font-weight:800;
+  color:#f4e3d3;line-height:1;
+}
+.step-card h3{font-size:15.5px;color:var(--brand-deep);margin-bottom:7px}
+.step-card p{font-size:13.4px;color:var(--ink-2);line-height:1.76;margin:0}
+
+/* FAQ */
+.faq-wrap{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+details.faq{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:0;overflow:hidden;transition:border-color .16s;
+}
+details.faq[open]{border-color:#f0c9a5}
+details.faq summary{
+  list-style:none;cursor:pointer;padding:14px 46px 14px 18px;
+  font-size:15px;font-weight:700;color:var(--ink-1);position:relative;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+  content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  font-size:20px;color:var(--brand);font-weight:400;line-height:1;
+}
+details.faq[open] summary::after{content:"−"}
+details.faq .a{padding:0 18px 16px;font-size:14.2px;color:var(--ink-2);line-height:1.85;border-top:1px dashed #f2e2d2;padding-top:12px}
+
+/* 评论 */
+.comment-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:13px 15px;font-size:13.6px;color:var(--ink-2);line-height:1.75;
+}
+.comment .who{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.comment .avatar{
+  width:26px;height:26px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--brand-light),var(--brand-deep));
+  color:#fff;font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.comment .name{font-size:13px;font-weight:700;color:var(--brand-deep)}
+.comment .time{font-size:11.5px;color:var(--ink-3);margin-left:auto}
+.comment p{margin:0}
+
+/* 资讯 */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-item{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:15px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;
+  transition:border-color .16s,box-shadow .16s;
+}
+.news-item:hover{border-color:#f0c9a5;box-shadow:var(--shadow-1)}
+.news-item h3{font-size:15.2px;margin-bottom:5px;color:var(--ink-1)}
+.news-item p{font-size:13.3px;color:var(--ink-2);margin:0;line-height:1.7}
+.news-item .date{
+  font-size:12px;color:var(--ink-3);white-space:nowrap;padding-top:3px;
+}
+
+/* 相关推荐 标签索引 */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px}
+.rec-tags a{
+  background:var(--panel);border:1px solid var(--line);border-radius:999px;
+  padding:7px 16px;font-size:13.6px;color:var(--ink-2);
+  transition:background .15s,color .15s,border-color .15s;
+}
+.rec-tags a:hover{background:var(--brand-pale);border-color:#f0c9a5;color:var(--brand-deep)}
+
+/* 榜单 */
+.rank-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden}
+.rank-item{
+  display:grid;grid-template-columns:38px minmax(0,1fr) auto;
+  gap:12px;align-items:center;padding:12px 18px;border-bottom:1px solid #f5ece3;
+}
+.rank-item:last-child{border-bottom:0}
+.rank-item .no{
+  font-size:17px;font-weight:800;color:#e0cbbb;text-align:center;
+}
+.rank-item:nth-child(1) .no{color:var(--brand)}
+.rank-item:nth-child(2) .no{color:#ea580c}
+.rank-item:nth-child(3) .no{color:#b45309}
+.rank-item h3{font-size:14.5px;margin-bottom:1px}
+.rank-item span{font-size:12.4px;color:var(--ink-3)}
+.rank-item .hot{font-size:12.5px;color:var(--brand);font-weight:700;white-space:nowrap}
+
+/* 投稿互动 */
+.submit-panel{
+  background:linear-gradient(135deg,#fff4e9,#fde9d6 70%,#fbdcc0);
+  border:1px solid #f3d6bd;border-radius:var(--radius-banner);
+  padding:26px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;
+  gap:24px;align-items:center;
+}
+.submit-panel h2{font-size:21px;color:var(--brand-deep);margin-bottom:8px}
+.submit-panel p{font-size:14px;color:#6b4630;margin-bottom:0;line-height:1.8}
+.submit-actions{display:flex;flex-direction:column;gap:9px}
+.submit-actions .btn-primary,.submit-actions .btn-ghost{white-space:nowrap;justify-content:center}
+.submit-meta{font-size:12px;color:#8a5b3c;margin-top:4px;text-align:center}
+
+/* 侧栏 */
+.side-card{
+  background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius-card);padding:15px 15px 13px;
+  box-shadow:var(--shadow-1);
+}
+.side-card h2{
+  font-size:14px;color:var(--brand-deep);margin-bottom:11px;
+  padding-bottom:8px;border-bottom:1px solid var(--line);
+}
+.side-hot li{
+  display:flex;gap:9px;padding:7px 0;font-size:13px;color:var(--ink-2);
+  line-height:1.6;border-bottom:1px dashed #f2e2d2;
+}
+.side-hot li:last-child{border-bottom:0;padding-bottom:0}
+.side-hot .n{
+  flex-shrink:0;width:18px;height:18px;border-radius:5px;background:var(--panel-2);
+  color:var(--brand);font-size:11.5px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin-top:2px;
+}
+.side-hot li:nth-child(1) .n,.side-hot li:nth-child(2) .n,.side-hot li:nth-child(3) .n{
+  background:var(--brand);color:#fff;
+}
+.side-timeline li{
+  position:relative;padding-left:16px;font-size:12.7px;color:var(--ink-2);
+  line-height:1.65;padding-bottom:11px;
+}
+.side-timeline li::before{
+  content:"";position:absolute;left:2px;top:7px;width:7px;height:7px;
+  border-radius:50%;background:var(--brand-light);
+}
+.side-timeline li::after{
+  content:"";position:absolute;left:5px;top:16px;bottom:2px;width:1px;background:#f0e0d1;
+}
+.side-timeline li:last-child::after{display:none}
+.side-timeline li:last-child{padding-bottom:0}
+.side-timeline b{display:block;color:var(--brand-deep);font-size:12.6px}
+.side-timeline i{font-style:normal;color:var(--ink-3);font-size:11.5px}
+.side-cta{
+  background:linear-gradient(150deg,var(--brand-deep),var(--brand));
+  color:#ffeede;border-radius:var(--radius-card);padding:16px;
+}
+.side-cta h2{color:#fff;border-bottom:1px solid rgba(255,255,255,.28);font-size:14px;padding-bottom:8px;margin-bottom:10px}
+.side-cta p{font-size:12.6px;line-height:1.7;color:#ffe2c9;margin-bottom:11px}
+.side-cta a{
+  display:block;text-align:center;background:#fff;color:var(--brand-deep);
+  border-radius:8px;padding:8px;font-size:13px;font-weight:700;
+}
+.side-cta a:hover{background:#fff3e6}
+
+/* 页尾 */
+.site-footer{
+  margin-top:40px;background:#2b1d14;color:#d9c7b8;
+}
+.footer-inner{
+  max-width:var(--maxw);margin:0 auto;padding:42px 20px 26px;
+}
+.footer-top{
+  display:grid;grid-template-columns:minmax(0,1.3fr) repeat(3,minmax(0,.9fr));
+  gap:30px;padding-bottom:28px;border-bottom:1px solid #453325;
+}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.footer-brand svg{width:32px;height:32px}
+.footer-brand b{font-size:18px;color:#fff;letter-spacing:.4px}
+.footer-desc{font-size:13px;line-height:1.8;color:#b6a294;max-width:400px}
+.footer-col h3{font-size:13.5px;color:#ffd9b3;margin-bottom:10px;letter-spacing:.5px}
+.footer-col a{display:block;font-size:12.8px;color:#b6a294;padding:3px 0;transition:color .15s}
+.footer-col a:hover{color:#ffd9b3}
+.footer-bottom{
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding-top:18px;font-size:12px;color:#8f7c6d;line-height:1.8;
+}
+
+/* 回到顶部 */
+.to-top{
+  position:fixed;right:20px;bottom:26px;z-index:50;
+  width:44px;height:44px;border-radius:50%;border:0;
+  background:var(--brand);color:#fff;font-size:17px;
+  box-shadow:var(--shadow-2);display:none;align-items:center;justify-content:center;
+}
+.to-top.show{display:flex}
+.to-top:hover{background:var(--brand-light)}
+
+/* 移动抽屉遮罩 */
+.overlay{
+  position:fixed;inset:0;background:rgba(40,24,14,.42);
+  z-index:70;display:none;
+}
+.overlay.show{display:block}
+
+/* ============ 响应式 ============ */
+@media (max-width:1180px){
+  .layout{grid-template-columns:160px minmax(0,1fr) 224px;gap:18px}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .overview-panel{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:1024px){
+  .layout{grid-template-columns:minmax(0,1fr) 250px;gap:18px}
+  .channel-col{
+    position:static;grid-column:1 / -1;
+  }
+  .channel-card{
+    display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:12px;
+  }
+  .channel-card h2{width:100%;margin-bottom:6px}
+  .channel-card a{padding:6px 12px;border:1px solid var(--line);background:#fff}
+  .channel-note{display:none}
+  .hero-inner{grid-template-columns:minmax(0,1fr);gap:26px}
+  .hero-visual{height:250px;max-width:460px}
+  .header-search{display:none}
+}
+@media (max-width:860px){
+  .main-nav{
+    position:fixed;left:0;right:0;top:calc(var(--notice-h) + var(--header-h));
+    background:#fff;flex-direction:column;gap:0;
+    padding:8px 14px 16px;border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-2);z-index:65;
+    transform:translateY(-12px);opacity:0;pointer-events:none;
+    transition:transform .2s,opacity .2s;
+    max-height:calc(100vh - var(--notice-h) - var(--header-h));
+    overflow-y:auto;
+  }
+  .main-nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .main-nav a{padding:11px 12px;border-radius:8px;font-size:15px}
+  .burger{display:flex;margin-left:auto}
+  .header-inner{gap:12px}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .aside-col{position:static;grid-template-columns:repeat(2,minmax(0,1fr));display:grid;gap:14px}
+  .footer-top{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:740px){
+  body{font-size:15px}
+  .hero-inner{padding:32px 16px 34px}
+  .hero h1{font-size:29px}
+  .hero-stats{gap:20px}
+  .layout{padding:24px 16px 8px;gap:22px}
+  .card-grid{grid-template-columns:minmax(0,1fr)}
+  .cat-grid{grid-template-columns:minmax(0,1fr)}
+  .overview-panel,.deep-article,.submit-panel{padding:20px 18px}
+  .guide-steps{grid-template-columns:minmax(0,1fr)}
+  .comment-grid{grid-template-columns:minmax(0,1fr)}
+  .aside-col{grid-template-columns:minmax(0,1fr)}
+  .update-item{grid-template-columns:56px minmax(0,1fr);gap:10px}
+  .update-item .tag{display:none}
+  .news-item{grid-template-columns:minmax(0,1fr)}
+  .news-item .date{padding-top:0}
+  .submit-panel{grid-template-columns:minmax(0,1fr)}
+  .submit-actions{flex-direction:row;flex-wrap:wrap}
+  .footer-top{grid-template-columns:minmax(0,1fr);gap:22px}
+  .section-head h2{font-size:19.5px}
+  .notice-scroll{gap:24px}
+  .compare-table{font-size:12.8px}
+  .compare-table th,.compare-table td{padding:7px 8px}
+  .to-top{right:14px;bottom:16px;width:40px;height:40px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="notice-bar" role="region" aria-label="站内更新公告">
+  <div class="wrap">
+    <span class="notice-brand">福利社zxfuli</span>
+    <div class="notice-scroll">
+      <span><b>11-08</b> 修复版《暗河渡口》4K 上线</span>
+      <span><b>11-07</b> 会员季卡 5.2 折 剩余 21 小时</span>
+      <span><b>11-05</b> 番剧《雾港渔灯》第二季开更</span>
+      <span><b>11-03</b> 投稿通道开放 老片修复主题</span>
+      <span><b>11-08</b> 修复版《暗河渡口》4K 上线</span>
+      <span><b>11-07</b> 会员季卡 5.2 折 剩余 21 小时</span>
+      <span><b>11-05</b> 番剧《雾港渔灯》第二季开更</span>
+      <span><b>11-03</b> 投稿通道开放 老片修复主题</span>
+    </div>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#top" class="logo" aria-label="福利社zxfuli 首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#c2410c"/>
+        <path d="M20 18h24v6H26v6h14v6H26v10h-6z" fill="#fff7ed"/>
+        <circle cx="46" cy="44" r="6" fill="#fbbf24"/>
+      </svg>
+      <span class="logo-text">福利社zxfuli</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="主题导航">
+      <a href="/#overview" class="active">领域概览</a>
+      <a href="/#picks">精选片单</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#channels">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">观看指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#comments">观众评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#rank">热门榜单</a>
+      <a href="/#submit">投稿互动</a>
+    </nav>
+
+    <div class="header-search" role="search">
+      <input type="search" id="siteSearch" placeholder="搜索条目名" aria-label="搜索站内条目">
+      <button type="button" id="searchBtn">查找</button>
+    </div>
+
+    <button class="burger" id="burger" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">◆ 限时福利 · 修复老片 · 会员折扣</span>
+      <h1>福利社zxfuli</h1>
+      <p class="hero-desc">
+        这里汇总限时免费片单、平台会员折扣、4K 修复老片与连载番剧的更新情报，
+        每条都标注上线时间、清晰度版本和可用范围，方便在周末前决定先看哪一部。
+      </p>
+      <div class="hero-actions">
+        <a href="/#picks" class="btn-primary">看本周精选片单</a>
+        <a href="/#updates" class="btn-ghost">查 24 小时更新</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>186</b><span>在架福利条目</span></div>
+        <div><b>42</b><span>本周新增片源</span></div>
+        <div><b>11-08</b><span>数据核对时间</span></div>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-card hv-1">
+        <div class="thumb"></div>
+        <div class="meta">
+          <b>暗河渡口 · 4K 修复</b>
+          <i>11 月 8 日 上线 · 限免 72 小时</i>
+        </div>
+      </div>
+      <div class="hero-card hv-2">
+        <div class="thumb"></div>
+        <div class="meta">
+          <b>雾港渔灯 第二季</b>
+          <i>11 月 5 日 开更 · 每周四更新</i>
+        </div>
+      </div>
+      <div class="hv-ticks">限免</div>
+    </div>
+  </div>
+</section>
+
+<!-- 三栏门户主体 -->
+<div class="layout">
+
+  <!-- 左：频道索引 -->
+  <aside class="channel-col">
+    <div class="channel-card">
+      <h2>频道索引</h2>
+      <a href="/#picks" class="on">限时免费片单 <em>36</em></a>
+      <a href="/#picks">4K 修复老片 <em>28</em></a>
+      <a href="/#picks">会员折扣情报 <em>19</em></a>
+      <a href="/#updates">连载番剧更新 <em>24</em></a>
+      <a href="/#channels">冷门佳作发掘 <em>17</em></a>
+      <a href="/#channels">导演剪辑版本 <em>12</em></a>
+      <a href="/#channels">短片与纪录片 <em>15</em></a>
+      <a href="/#news">平台规则变动 <em>9</em></a>
+      <a href="/#rank">本周口碑榜 <em>10</em></a>
+      <a href="/#submit">老片修复投稿 <em>—</em></a>
+    </div>
+    <div class="channel-note">
+      修复版片源以官方公布的母带规格为准；标注「限免」的条目到期后可能转为付费。
+    </div>
+  </aside>
+
+  <!-- 中：主内容 -->
+  <main class="main-col" id="mainContent">
+
+    <!-- 1 领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <h2>影视福利资源的几个主要方向</h2>
+        <span class="sub">按获取方式与片源性质划分</span>
+      </div>
+      <div class="overview-panel">
+        <div>
+          <p>
+            「福利」在观影语境里通常指两件事：一是花钱少，二是不容易找到。前者对应各平台的限时免费、新用户首月、季卡年卡折扣；
+            后者对应下架多年的老片、只在影展放映过的短片、以及母带重新扫描后的修复版本。这两类内容的时间窗口都很短，错过一次往往要等下一轮版权周期。
+          </p>
+          <p>
+            老片修复是近两年增长最快的一支。2026 年上半年国内至少上线了 37 部 2K 或 4K 修复作品，其中《暗河渡口》《南屏晚钟》《铁轨上的春天》三部走的是原始底片 4K 扫描路线，
+            调色参考了当年的拷贝样片。修复版和普通重映版的差别在颗粒处理与音轨：前者保留胶片颗粒，后者常做数字降噪，观感偏干净但细节被抹平。
+          </p>
+          <p>
+            番剧方向则看重更新节奏与地区可用性。《雾港渔灯》第二季在 11 月 5 日开更，每周四一集，共 12 集；《长夜拾荒》走的是半年番路线，11 月 2 日复更第 14 集。
+            连载作品的福利通常体现在首集免费、会员抢先看两集这类机制上，实际能省下的钱有限，但对追更的人来说省的是等待。
+          </p>
+          <p>
+            会员折扣的规律更接近电商促销：季度末冲量、平台周年、新剧上线前预热是三个常见节点。11 月这轮集中在 11 月 6 日至 11 月 9 日，
+            季卡最低到 5.2 折，年卡最低 6.8 折，但年卡折扣多绑定自动续费，取消入口在账户设置的第三层菜单里。
+          </p>
+        </div>
+        <div class="overview-side">
+          <h3>本期条目构成</h3>
+          <div class="ov-item"><b>36</b>限时免费 / 首集免费片单</div>
+          <div class="ov-item"><b>28</b>2K / 4K 修复版本</div>
+          <div class="ov-item"><b>24</b>连载番剧与周更剧集</div>
+          <div class="ov-item"><b>19</b>会员折扣与兑换码</div>
+          <div class="ov-item"><b>12</b>导演剪辑 / 加长版</div>
+          <div class="ov-item"><b>9</b>平台规则与地区限制变动</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="section" id="picks">
+      <div class="section-head">
+        <h2>本周精选片单</h2>
+        <a href="/#rank" class="more">看口碑榜 →</a>
+      </div>
+      <div class="filter-bar" id="pickFilter" role="group" aria-label="按类型筛选片单">
+        <button type="button" class="on" data-cat="all">全部</button>
+        <button type="button" data-cat="repair">修复老片</button>
+        <button type="button" data-cat="series">连载番剧</button>
+        <button type="button" data-cat="short">短片纪录</button>
+        <button type="button" data-cat="discount">会员折扣</button>
+      </div>
+      <div class="card-grid" id="pickGrid">
+        <article class="pick-card" data-cat="repair">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/anhedou4k/400/300" alt="暗河渡口修复版河岸夜戏画面" width="400" height="300" loading="lazy">
+            <span class="badge">4K 修复</span>
+          </div>
+          <div class="body">
+            <h3>暗河渡口（1994）4K 修复版</h3>
+            <div class="tags"><span>修复老片</span><span>限免 72 小时</span><span>国语原声</span></div>
+            <p class="desc">原始底片 4K 扫描，保留胶片颗粒，第 47 分钟渡口长镜头比 2018 年重映版多出 11 秒。11 月 8 日上线，限免至 11 月 10 日 24 时。</p>
+            <div class="foot"><span>热度 9.4</span><b>限时免费</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="series">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/wugangyudeng/400/300" alt="雾港渔灯第二季渔港黄昏场景" width="400" height="300" loading="lazy">
+            <span class="badge">周更</span>
+          </div>
+          <div class="body">
+            <h3>雾港渔灯 第二季</h3>
+            <div class="tags"><span>连载番剧</span><span>每周四更新</span><span>首集免费</span></div>
+            <p class="desc">11 月 5 日开更，共 12 集。第二季把叙事重心移到渔港合作社的账目线，第 1 集结尾的停电段落用了手绘逐帧，单集成本比第一季高约 30%。</p>
+            <div class="foot"><span>评分 8.9</span><b>会员抢先看</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="discount">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/huiyuan52/400/300" alt="会员季卡折扣页面截图示意" width="400" height="300" loading="lazy">
+            <span class="badge">折扣</span>
+          </div>
+          <div class="body">
+            <h3>季卡 5.2 折 · 11 月 9 日 24 时截止</h3>
+            <div class="tags"><span>会员折扣</span><span>非自动续费</span><span>可叠加兑换码</span></div>
+            <p class="desc">原价 68 元的季卡折后 35.4 元，与「新剧预热券」可叠加，实测再减 5 元。折扣不绑定自动续费，到账后可在订单页核对有效期。</p>
+            <div class="foot"><span>剩余 21 小时</span><b>35.4 元</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="repair">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/nanpingwanzhong/400/300" alt="南屏晚钟修复版钟楼黄昏画面" width="400" height="300" loading="lazy">
+            <span class="badge">2K 修复</span>
+          </div>
+          <div class="body">
+            <h3>南屏晚钟（1987）2K 修复版</h3>
+            <div class="tags"><span>修复老片</span><span>导演访谈附赠</span><span>限免 5 天</span></div>
+            <p class="desc">修复基于 1987 年国内首映拷贝，色彩偏暖的问题在本次调色中做了校正。附 18 分钟导演访谈，讲述当年钟楼实景拍摄的收音方案。</p>
+            <div class="foot"><span>热度 8.7</span><b>限时免费</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="short">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/tieguiSpring/400/300" alt="铁轨上的春天纪录片铁轨画面" width="400" height="300" loading="lazy">
+            <span class="badge">纪录片</span>
+          </div>
+          <div class="body">
+            <h3>铁轨上的春天</h3>
+            <div class="tags"><span>短片纪录</span><span>46 分钟</span><span>免费观看</span></div>
+            <p class="desc">跟拍西南山区一段 32 公里支线铁路的养护工，拍摄周期跨 14 个月。全片无旁白，靠现场同期声推进，适合搭配修复版老片一起看。</p>
+            <div class="foot"><span>评分 9.1</span><b>免费</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="series">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/changyeshihuang/400/300" alt="长夜拾荒番剧荒野夜景画面" width="400" height="300" loading="lazy">
+            <span class="badge">半年番</span>
+          </div>
+          <div class="body">
+            <h3>长夜拾荒 第 14 集</h3>
+            <div class="tags"><span>连载番剧</span><span>11 月 2 日复更</span><span>会员抢先</span></div>
+            <p class="desc">停更 7 周后复更，第 14 集补完了拾荒队与调度站的旧账线。制作方在片尾加了 40 秒制作说明，解释第 12 至 13 集延期的排期原因。</p>
+            <div class="foot"><span>评分 8.4</span><b>会员免费</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="repair">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/daoyanjianji/400/300" alt="导演剪辑版片场黑白剧照" width="400" height="300" loading="lazy">
+            <span class="badge">导演剪辑</span>
+          </div>
+          <div class="body">
+            <h3>《回声谷》导演剪辑版</h3>
+            <div class="tags"><span>导演剪辑版</span><span>加长 27 分钟</span><span>限免 4 天</span></div>
+            <p class="desc">比院线版多出 27 分钟，主要是山谷巡线的三段支线。剪辑师在映后谈里提到，院线版删掉这些段落是为压缩到 110 分钟以内。</p>
+            <div class="foot"><span>热度 8.2</span><b>限时免费</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="short">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/duanpianji/400/300" alt="青年短片集海报局部" width="400" height="300" loading="lazy">
+            <span class="badge">短片集</span>
+          </div>
+          <div class="body">
+            <h3>青年短片集：七个房间</h3>
+            <div class="tags"><span>短片纪录</span><span>合集 7 部</span><span>免费观看</span></div>
+            <p class="desc">七部短片共 96 分钟，均拍摄于同一栋待拆居民楼。第 4 部《三楼的雨》在 2026 年平遥短片单元拿到评审团特别提及。</p>
+            <div class="foot"><span>评分 8.6</span><b>免费</b></div>
+          </div>
+        </article>
+
+        <article class="pick-card" data-cat="discount">
+          <div class="cover">
+            <img src="https://picsum.photos/seed/nianka68/400/300" alt="年卡折扣与自动续费设置示意" width="400" height="300" loading="lazy">
+            <span class="badge">年卡</span>
+          </div>
+          <div class="body">
+            <h3>年卡 6.8 折 · 需留意续费开关</h3>
+            <div class="tags"><span>会员折扣</span><span>绑定自动续费</span><span>11 月 9 日截止</span></div>
+            <p class="desc">折后 176 元，比季卡叠加更划算，但默认开启自动续费。取消路径在「账户—订阅管理—支付方式」第三层，取消后权益保留至到期日。</p>
+            <div class="foot"><span>剩余 21 小时</span><b>176 元</b></div>
+          </div>
+        </article>
+      </div>
+      <div class="filter-empty" id="filterEmpty">没有匹配的条目，换个类型试试。</div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-head">
+        <h2>48 小时内上架与变动</h2>
+        <span class="sub">按上架时间倒序</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <div class="dt">11-08<i>今天</i></div>
+          <div><h3>《暗河渡口》4K 修复版上线</h3><p>限免 72 小时，片长 118 分钟，含 11 秒新增渡口长镜头，音轨提供国语原声与修复配乐两版。</p></div>
+          <span class="tag">修复老片</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-08<i>今天</i></div>
+          <div><h3>季卡 5.2 折活动开启</h3><p>折后 35.4 元，可叠加「新剧预热券」再减 5 元，活动页面显示库存 2 万份，售完即止。</p></div>
+          <span class="tag">会员折扣</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-07<i>昨天</i></div>
+          <div><h3>《回声谷》导演剪辑版上架</h3><p>加长 27 分钟，分级标注调整为 16+，平台在片头加了 8 秒内容提示卡。</p></div>
+          <span class="tag">导演剪辑</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-07<i>昨天</i></div>
+          <div><h3>《南屏晚钟》2K 修复版调色重传</h3><p>修正了 10 月 31 日首版中第 62 分钟偏绿的问题，已观看用户需清除缓存后重新加载。</p></div>
+          <span class="tag">修复老片</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-06<i>周五</i></div>
+          <div><h3>《长夜拾荒》第 15 集预告放出</h3><p>预告 1 分 12 秒，确认第 15 集将于 11 月 16 日更新，制作方称后续恢复双周更节奏。</p></div>
+          <span class="tag">连载番剧</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-05<i>周四</i></div>
+          <div><h3>《雾港渔灯》第二季开更</h3><p>首集 24 分钟，会员可看第 1 至 2 集，非会员首集免费，第 3 集起转为会员专享。</p></div>
+          <span class="tag">连载番剧</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-04<i>周三</i></div>
+          <div><h3>青年短片集《七个房间》上线</h3><p>合集 7 部共 96 分钟，全部免费，其中《三楼的雨》附 6 分钟导演自述音轨。</p></div>
+          <span class="tag">短片纪录</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-03<i>周二</i></div>
+          <div><h3>老片修复投稿通道开放</h3><p>本期主题为「县城影院记忆」，接受 1990 至 2005 年间的观影票据、放映日志与拷贝照片。</p></div>
+          <span class="tag">投稿互动</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-02<i>周一</i></div>
+          <div><h3>《长夜拾荒》复更第 14 集</h3><p>停更 7 周后复更，单集时长 23 分 40 秒，片尾追加 40 秒制作说明。</p></div>
+          <span class="tag">连载番剧</span>
+        </div>
+        <div class="update-item">
+          <div class="dt">11-01<i>周六</i></div>
+          <div><h3>《铁轨上的春天》开放免费观看</h3><p>46 分钟纪录片，提供中文字幕与无字幕两版，无字幕版保留了更多现场同期声。</p></div>
+          <span class="tag">短片纪录</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="channels">
+      <div class="section-head">
+        <h2>按内容类型找片</h2>
+        <span class="sub">八类常用检索方向</span>
+      </div>
+      <div class="cat-grid">
+        <a href="/#picks" class="cat-item">
+          <b>限时免费片单</b>
+          <span>首集免费、72 小时限免、节日专题免费场</span>
+          <em>36 条在架</em>
+        </a>
+        <a href="/#picks" class="cat-item">
+          <b>4K 修复老片</b>
+          <span>底片扫描、2K 修复、颗粒保留与调色说明</span>
+          <em>28 条在架</em>
+        </a>
+        <a href="/#picks" class="cat-item">
+          <b>导演剪辑版</b>
+          <span>加长版、院线版差异、分级调整记录</span>
+          <em>12 条在架</em>
+        </a>
+        <a href="/#updates" class="cat-item">
+          <b>连载番剧更新</b>
+          <span>周更表、复更与停更公告、会员抢先集数</span>
+          <em>24 条在架</em>
+        </a>
+        <a href="/#picks" class="cat-item">
+          <b>会员折扣情报</b>
+          <span>季卡年卡折扣、兑换码叠加、续费开关</span>
+          <em>19 条在架</em>
+        </a>
+        <a href="/#picks" class="cat-item">
+          <b>短片与纪录片</b>
+          <span>青年短片集、独立纪录、影展入围作品</span>
+          <em>15 条在架</em>
+        </a>
+        <a href="/#news" class="cat-item">
+          <b>平台规则变动</b>
+          <span>地区限制、分级调整、下架与重新上架</span>
+          <em>9 条在架</em>
+        </a>
+        <a href="/#rank" class="cat-item">
+          <b>冷门佳作发掘</b>
+          <span>低热度高评分、影展遗珠、票房失利但口碑稳</span>
+          <em>17 条在架</em>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="section" id="deep">
+      <div class="section-head">
+        <h2>修复版到底值不值得等</h2>
+        <span class="sub">从片源规格、调色依据到可用窗口</span>
+      </div>
+      <article class="deep-article">
+        <h3>修复版和重映版不是同一件事</h3>
+        <p>
+          2026 年上线的《暗河渡口》《南屏晚钟》《铁轨上的春天》都被标为「修复」，但三者工艺路径不同。判断一部修复作品是否值得专门去看，
+          第一步是看片源说明里的扫描规格：写「原始底片 4K 扫描」的，颗粒和暗部层次通常保留完整；写「2K 数字修复」的，多半基于已有数字母带做降噪和色彩校正，
+          提升有限。
+        </p>
+        <p>
+          一个可核对的例子是《南屏晚钟》。10 月 31 日首版上线后，有观众在第 62 分钟的室内场景发现整体偏绿，平台在 11 月 7 日重传了调色版本。
+          这说明修复链条里调色环节的验收并不总是严格，片源说明写了「参考当年拷贝」，实际交付前仍可能出偏差。反过来，《暗河渡口》第 47 分钟渡口长镜头比 2018 年重映版多出 11 秒，
+          这 11 秒来自底片扫描时补回的被剪片段，属于有明确依据的增量。
+        </p>
+        <div class="deep-quote">
+          判断依据拆成三项可核对：扫描规格是否写明底片来源、调色是否附参照拷贝说明、增量片段是否标注具体时长与位置。三项齐全的修复版，等待成本才值得付出。
+        </div>
+
+        <h3>颗粒保留与数字降噪的取舍</h3>
+        <p>
+          修复圈内的分歧集中在颗粒处理。一派主张保留胶片颗粒，理由是颗粒承载了胶片的质感与曝光信息；另一派主张数字降噪，理由是当代显示设备下颗粒会被放大成噪点。
+          两种做法在 2026 年的作品里都能找到实例，效果差异可以量化对比。
+        </p>
+        <table class="compare-table">
+          <thead>
+            <tr><th>处理方式</th><th>代表条目</th><th>观感差异</th><th>适用场景</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>保留颗粒</td>
+              <td>《暗河渡口》4K 修复版</td>
+              <td>暗部有细密跳动，夜景层次更厚</td>
+              <td>大屏投影、追求胶片质感</td>
+            </tr>
+            <tr>
+              <td>数字降噪</td>
+              <td>《南屏晚钟》2K 修复版</td>
+              <td>画面干净，暗部细节略被抹平</td>
+              <td>手机、平板等小屏观看</td>
+            </tr>
+            <tr>
+              <td>混合处理</td>
+              <td>《回声谷》导演剪辑版</td>
+              <td>人物特写保留颗粒，空镜降噪</td>
+              <td>兼顾清晰度与质感</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>
+          混合处理听起来折中，实际执行中最容易出问题：同一场景内颗粒强度不一致，切换镜头时会有轻微的「跳」。看《回声谷》导演剪辑版第 34 分钟的山谷空镜转人物特写，
+          能明显感到质感断层。这不是说混合处理不可用，而是验收标准要更细。
+        </p>
+
+        <h3>限免窗口与版权周期</h3>
+        <p>
+          限免的时间窗口通常与版权周期绑定。11 月 8 日上线的《暗河渡口》限免 72 小时，11 月 10 日 24 时到期后转为会员专享；
+          《南屏晚钟》限免 5 天，跨度覆盖一个周末。窗口长短和片方的推广预算直接相关，预算高的片子窗口更长。
+        </p>
+        <ul>
+          <li>72 小时窗口：多为新修复片首轮推广，到期后转为会员专享，极少回到免费。</li>
+          <li>5 天窗口：常与影展或纪念日联动，到期后可能二次限免，间隔约 3 至 6 个月。</li>
+          <li>无期限免费：多为纪录片与短片，版权方以传播优先，画质规格通常为 1080P。</li>
+        </ul>
+        <p>
+          对观众的实际含义是：修复老片优先在窗口期内看完，尤其是标注「首轮推广」的条目；纪录片和短片可以放缓，但要注意部分短片集在影展周期结束后会整体下架，
+          例如《七个房间》的合集授权到 2027 年 3 月，之后可能拆分为单片单独上架。
+        </p>
+
+        <h3>会员折扣的真实成本</h3>
+        <p>
+          季卡 5.2 折、年卡 6.8 折看起来差距不大，算到日均成本就分开了。季卡折后 35.4 元覆盖 90 天，日均约 0.39 元；年卡折后 176 元覆盖 365 天，日均约 0.48 元。
+          单看日均，季卡反而更低，但季卡到期后要重新找折扣，年卡则锁定一年价格。
+        </p>
+        <p>
+          容易被忽略的是自动续费。年卡折扣默认开启续费，续费按原价 258 元扣款，取消入口在「账户—订阅管理—支付方式」第三层菜单。
+          11 月 6 日之后购买的用户，平台在订单确认页加了续费提醒勾选框，但默认状态仍是勾选。这一点在比价时应当计入：如果一年内不打算持续使用，季卡的实际支出更低。
+        </p>
+      </article>
+    </section>
+
+    <!-- 6 观看指南 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <h2>一周观影的取舍顺序</h2>
+        <span class="sub">从窗口长度和片源规格倒推</span>
+      </div>
+      <div class="guide-steps">
+        <div class="step-card">
+          <span class="num">01</span>
+          <h3>先看窗口短的</h3>
+          <p>72 小时限免的修复片排在最前。《暗河渡口》11 月 10 日 24 时到期，之后转会员专享，错过要等下一轮版权周期，通常 3 个月以上。</p>
+        </div>
+        <div class="step-card">
+          <span class="num">02</span>
+          <h3>再判断修复规格</h3>
+          <p>片源说明写「原始底片 4K 扫描」的优先，写「2K 数字修复」的放后面。前者增量片段有明确标注，后者多为降噪处理，小屏观看差别不大。</p>
+        </div>
+        <div class="step-card">
+          <span class="num">03</span>
+          <h3>连载番剧按更新日排</h3>
+          <p>《雾港渔灯》每周四更新，《长夜拾荒》11 月 16 日复更。会员抢先看通常多两集，追更的人可以攒到第 4 集再开会员，省一个月的费用。</p>
+        </div>
+        <div class="step-card">
+          <span class="num">04</span>
+          <h3>折扣先算日均再下单</h3>
+          <p>季卡日均 0.39 元，年卡日均 0.48 元，但年卡锁价一年。若一年内使用不足 8 个月，季卡叠加兑换码更划算，且不用处理续费开关。</p>
+        </div>
+        <div class="step-card">
+          <span class="num">05</span>
+          <h3>纪录片与短片放最后</h3>
+          <p>《铁轨上的春天》《七个房间》长期免费，不占窗口。但短片集授权到 2027 年 3 月，想按合集顺序看的话别拖过这个节点。</p>
+        </div>
+        <div class="step-card">
+          <span class="num">06</span>
+          <h3>比较同类条目看增量</h3>
+          <p>同为修复版，《暗河渡口》多 11 秒，《回声谷》导演剪辑版多 27 分钟。增量时长与位置是否标注清楚，是判断值不值得重看的直接依据。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <h2>关于修复版与折扣的常见疑问</h2>
+        <span class="sub">按提问频率排序</span>
+      </div>
+      <div class="faq-wrap">
+        <details class="faq" open>
+          <summary>4K 修复版和普通高清版画质差多少？</summary>
+          <div class="a">差别主要在扫描规格和颗粒处理。原始底片 4K 扫描的版本，暗部层次和胶片颗粒保留完整，投影到大屏时差距明显；基于数字母带做的 2K 修复，在手机和平板上几乎看不出区别。《暗河渡口》属于前者，《南屏晚钟》属于后者。</div>
+        </details>
+        <details class="faq">
+          <summary>限免到期后还能免费看吗？</summary>
+          <div class="a">多数修复片首轮限免结束后转为会员专享，回到免费的概率低。少数与影展联动的条目会二次限免，间隔约 3 至 6 个月，例如《南屏晚钟》的 5 天窗口就属于影展联动型，到期后仍有二次开放的可能。</div>
+        </details>
+        <details class="faq">
+          <summary>年卡 6.8 折比季卡 5.2 折算下来更便宜吗？</summary>
+          <div class="a">按日均算季卡更低：季卡折后 35.4 元覆盖 90 天，日均约 0.39 元；年卡折后 176 元覆盖 365 天，日均约 0.48 元。年卡的优势是锁价一年，且默认开启自动续费，续费按原价 258 元扣款，取消入口在账户设置的第三层菜单。</div>
+        </details>
+        <details class="faq">
+          <summary>《雾港渔灯》第二季非会员能看几集？</summary>
+          <div class="a">首集免费，第 2 集起为会员专享。会员可抢先看两集，即更新日当天能看第 1 至 2 集。全季共 12 集，每周四更新一集，按此节奏第 12 集约在 2027 年 1 月下旬上线。</div>
+        </details>
+        <details class="faq">
+          <summary>导演剪辑版多出来的内容一般是什么？</summary>
+          <div class="a">多为院线版因时长压缩删掉的支线段落。《回声谷》导演剪辑版多出 27 分钟，集中在山谷巡线的三段支线；这类段落通常不推动主线，但补完人物动机。分级也会随内容调整，《回声谷》剪辑版从 12+ 调整为 16+。</div>
+        </details>
+        <details class="faq">
+          <summary>短片集为什么有时会整体下架？</summary>
+          <div class="a">合集授权通常按打包周期签订，到期后版权方可能选择拆分单片单独上架，或整体撤回。《七个房间》的合集授权到 2027 年 3 月，之后是否保留合集形式取决于七部短片各自的续约情况，目前只有《三楼的雨》确认续约。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <h2>观众在说什么</h2>
+        <span class="sub">近 7 天评论摘录</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment">
+          <div class="who"><span class="avatar">河</span><span class="name">渡口边的猫</span><span class="time">11-08</span></div>
+          <p>《暗河渡口》那 11 秒补回来的是渡口边一个回头的镜头，2018 年重映版里直接切走了。值不值等三天，就看你在不在意这个。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">钟</span><span class="name">南屏旧事</span><span class="time">11-08</span></div>
+          <p>62 分钟偏绿的问题我 10 月 31 日就发现了，当时还以为是自己的屏幕。11 月 7 日重传后正常了，但缓存要手动清。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">雾</span><span class="name">渔灯不亮</span><span class="time">11-07</span></div>
+          <p>第二季第一集结尾停电那段手绘逐帧，单集成本涨 30% 是能看出来的。就是叙事线跳到账目上，头两集有点闷。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">季</span><span class="name">算账的阿季</span><span class="time">11-07</span></div>
+          <p>季卡叠券 30.4 元拿下，比年卡日均低。年卡那个自动续费默认勾选，去年被扣过一次原价，今年不碰了。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">轨</span><span class="name">支线铁路迷</span><span class="time">11-06</span></div>
+          <p>《铁轨上的春天》无字幕版比字幕版好看，现场同期声里有扳道岔的金属声，字幕版为了压混音把这层声音调低了。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">回</span><span class="name">回声谷谷主</span><span class="time">11-06</span></div>
+          <p>导演剪辑版第 34 分钟空镜转特写，颗粒强度确实跳了一下。混合处理不靠谱，要么全保留要么全降噪。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">拾</span><span class="name">拾荒第十四集</span><span class="time">11-05</span></div>
+          <p>停更 7 周，复更这集 23 分 40 秒，片尾 40 秒说明里提到排期是外包公司换手导致的。能解释清楚就行，别装没事。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">七</span><span class="name">三楼的雨</span><span class="time">11-05</span></div>
+          <p>《七个房间》第四部最好，其他几部水准参差。96 分钟里有两部我会快进，合集形式反而拖累整体评分。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">票</span><span class="name">县城影院票据控</span><span class="time">11-04</span></div>
+          <p>投稿通道开了，我手上有 1998 年到 2003 年的一沓票根，准备拍好整理一下传上去。就是不知道扫描件收不收。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">清</span><span class="name">清晰度强迫症</span><span class="time">11-04</span></div>
+          <p>2K 修复说是 2K，实际码率和真 2K 差不少。小屏看无所谓，投到 100 寸就糊了，这点希望标注能写清楚。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">周</span><span class="name">周四蹲更新</span><span class="time">11-03</span></div>
+          <p>每周四更新这个节奏挺好，比双周更稳定。会员抢先两集，我一般攒到第四集再开一个月，刚好看到季末。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">券</span><span class="name">兑换码猎人</span><span class="time">11-03</span></div>
+          <p>新剧预热券那张要手动领，藏在活动页第二屏，不点进去根本看不见。领完再下单才能叠加，顺序错了就白搭。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">绿</span><span class="name">偏绿受害者</span><span class="time">11-02</span></div>
+          <p>调色重传这种事儿一次两次能理解，希望验收环节能上点心。修片是手艺活，交付前至少完整过一遍吧。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">春</span><span class="name">春天在铁轨上</span><span class="time">11-02</span></div>
+          <p>46 分钟无旁白，靠同期声推进，看的时候最好戴耳机。手机外放会丢掉很多细节。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">账</span><span class="name">账目线观察</span><span class="time">11-01</span></div>
+          <p>渔港合作社的账目线其实第一季就埋了伏笔，第二季放大这条线不算突兀。就是节奏慢，适合一次看两集。</p>
+        </div>
+        <div class="comment">
+          <div class="who"><span class="avatar">夜</span><span class="name">长夜不睡</span><span class="time">11-01</span></div>
+          <p>半年番复更能给出具体排期说明的，比那些一声不吭就停更的强太多。40 秒说明不长，信息给到位了。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <h2>片源与规则动态</h2>
+        <span class="sub">10 月 20 日至 11 月 8 日</span>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <div>
+            <h3>《暗河渡口》修复项目公开底片扫描批次</h3>
+            <p>修复团队在 11 月 8 日的映后交流中披露，本次扫描使用 1994 年冲洗的 A、B 两卷底片，其中 B 卷有 2 分 18 秒受潮，已用相邻帧插值补足。团队称插值段落未做画面放大处理。</p>
+          </div>
+          <span class="date">11-08</span>
+        </article>
+        <article class="news-item">
+          <div>
+            <h3>季卡折扣库存显示 2 万份，开售 4 小时售出 1.3 万份</h3>
+            <p>活动页在 11 月 8 日 10 时上线，14 时页面显示的剩余库存为 7000 份。平台客服回复称库存按批次释放，不排除后续追加。</p>
+          </div>
+          <span class="date">11-08</span>
+        </article>
+        <article class="news-item">
+          <div>
+            <h3>《南屏晚钟》调色重传，平台补充验收说明</h3>
+            <p>11 月 7 日重传的版本附了一份两页的调色说明，列出参照的三份 1987 年拷贝编号。平台在片源详情页新增「修复验收」栏目，首批覆盖 6 部作品。</p>
+          </div>
+          <span class="date">11-07</span>
+        </article>
+        <article class="news-item">
+          <div>
+            <h3>《雾港渔灯》第二季单集成本上调三成</h3>
+            <p>制作方在 11 月 5 日的开播直播中提到，第二季单集预算比第一季高约 30%，主要增量在逐帧手绘与配乐录制。全季 12 集的制作周期为 19 个月。</p>
+          </div>
+          <span class="date">11-05</span>
+        </article>
+        <article class="news-item">
+          <div>
+            <h3>《七个房间》合集授权确认至 2027 年 3 月</h3>
+            <p>短片集发行方在 11 月 4 日回复观众提问时确认，七部短片打包授权有效期至 2027 年 3 月 31 日。到期后《三楼的雨》将单独续约，其余六部是否保留合集形式尚未确定。</p>
+          </div>
+          <span class="date">11-04</span>
+        </article>
+        <article class="news-item">
+          <div>
+            <h3>老片修复投稿通道启动，首期主题「县城影院记忆」</h3>
+            <p>投稿通道于 11 月 3 日开放，接受 1990 至 2005 年间的观影票据、放映日志与拷贝照片，首期征集截止到 12 月 15 日。入选材料将用于修复项目的背景考据。</p>
+          </div>
+          <span class="date">11-03</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-head">
+        <h2>顺着这些方向继续找</h2>
+        <span class="sub">具体条目与类型词</span>
+      </div>
+      <div class="rec-tags">
+        <a href="/#picks">1990 年代国产修复片</a>
+        <a href="/#picks">原始底片 4K 扫描</a>
+        <a href="/#picks">导演剪辑版增量时长</a>
+        <a href="/#updates">半年番复更排期</a>
+        <a href="/#picks">首集免费番剧</a>
+        <a href="/#picks">影展联动限免</a>
+        <a href="/#guide">自动续费取消路径</a>
+        <a href="/#picks">青年短片合集</a>
+      </div>
+    </section>
+
+    <!-- 11 热门榜单 -->
+    <section class="section" id="rank">
+      <div class="section-head">
+        <h2>本周口碑榜</h2>
+        <span class="sub">按近 7 天评分与讨论量综合</span>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item">
+          <span class="no">1</span>
+          <div><h3>暗河渡口（1994）4K 修复版</h3><span>修复老片 · 118 分钟 · 限免至 11-10</span></div>
+          <span class="hot">9.4</span>
+        </div>
+        <div class="rank-item">
+          <span class="no">2</span>
+          <div><h3>铁轨上的春天</h3><span>纪录片 · 46 分钟 · 免费</span></div>
+          <span class="hot">9.1</span>
+        </div>
+        <div class="rank-item">
+          <span class="no">3</span>
+          <div><h3>雾港渔灯 第二季</h3><span>连载番剧 · 每周四更新</span></div>
+          <span class="hot">8.9</span>
+        </div>
+        <div class="rank-item">
+          <span class="no">4</span>
+          <div><h3>南屏晚钟（1987）2K 修复版</h3><span>修复老片 · 已重传调色版本</span></div>
+          <span class="hot">8.7</span>
+        </div>
+        <div class="rank-item">
+          <span class="no">5</span>
+          <div><h3>青年短片集：七个房间</h3><span>短片合集 · 7 部 96 分钟</span></div>
+          <span class="hot">8.6</span>
+        </div>
+        <div class="rank-item">
+          <span class="no">6</span>
+          <div><h3>长夜拾荒 第 14 集</h3><span>半年番 · 11-16 更新第 15 集</span></div>
+          <span class="hot">8.4</span>
+        </div>
+        <div class="rank-item">
+          <span class="no">7</span>
+          <div><h3>回声谷 导演剪辑版</h3><span>导演剪辑 · 加长 27 分钟</span></div>
+          <span class="hot">8.2</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12 投稿互动 -->
+    <section class="section" id="submit">
+      <div class="submit-panel">
+        <div>
+          <h2>投稿：你手上有老影院的痕迹吗</h2>
+          <p>
+            首期主题「县城影院记忆」正在征集 1990 至 2005 年间的观影票据、手写放映日志、拷贝照片与影院外景旧照。
+            入选材料会整理进修复项目的背景考据，并在片源详情页署名标注。征集截止 12 月 15 日。
+          </p>
+        </div>
+        <div class="submit-actions">
+          <a href="/#submit" class="btn-primary">进入投稿说明</a>
+          <a href="/#comments" class="btn-ghost">看往期入选</a>
+          <span class="submit-meta">已收到 214 份材料</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右：辅助栏 -->
+  <aside class="aside-col">
+    <div class="side-card">
+      <h2>热榜速览</h2>
+      <ul class="side-hot">
+        <li><span class="n">1</span><span>暗河渡口 4K 修复版 · 11-08 限免</span></li>
+        <li><span class="n">2</span><span>季卡 5.2 折 · 11-09 24 时截止</span></li>
+        <li><span class="n">3</span><span>雾港渔灯 第二季 第 1 集</span></li>
+        <li><span class="n">4</span><span>南屏晚钟 调色重传版本</span></li>
+        <li><span class="n">5</span><span>铁轨上的春天 无字幕版</span></li>
+        <li><span class="n">6</span><span>回声谷 导演剪辑版 加长 27 分钟</span></li>
+      </ul>
+    </div>
+
+    <div class="side-card">
+      <h2>关键时间点</h2>
+      <ul class="side-timeline">
+        <li><b>11-10 24:00</b><i>《暗河渡口》限免结束</i></li>
+        <li><b>11-09 24:00</b><i>季卡 5.2 折 / 年卡 6.8 折截止</i></li>
+        <li><b>11-12</b><i>《雾港渔灯》第 2 集更新</i></li>
+        <li><b>11-16</b><i>《长夜拾荒》第 15 集更新</i></li>
+        <li><b>12-15</b><i>「县城影院记忆」投稿截止</i></li>
+        <li><b>2027-03-31</b><i>《七个房间》合集授权到期</i></li>
+      </ul>
+    </div>
+
+    <div class="side-cta">
+      <h2>本周先看哪部</h2>
+      <p>窗口最短的是《暗河渡口》，11 月 10 日 24 时前免费；其次是 11 月 9 日截止的季卡折扣。</p>
+      <a href="/#guide">查看观看顺序</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#c2410c"/>
+            <path d="M20 18h24v6H26v6h14v6H26v10h-6z" fill="#fff7ed"/>
+            <circle cx="46" cy="44" r="6" fill="#fbbf24"/>
+          </svg>
+          <b>福利社zxfuli</b>
+        </div>
+        <p class="footer-desc">
+          条目覆盖 1987 年至今的修复作品与 2026 年秋季番剧，类型包括 4K 修复长片、导演剪辑版、青年短片合集与独立纪录片；
+          更新节奏为每日核对上架与下架，每周日发布一次口碑榜。
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>内容频道</h3>
+        <a href="/#picks">限时免费片单</a>
+        <a href="/#picks">4K 修复老片</a>
+        <a href="/#picks">导演剪辑版</a>
+        <a href="/#updates">连载番剧更新</a>
+      </div>
+      <div class="footer-col">
+        <h3>参考与判断</h3>
+        <a href="/#deep">修复版值不值得等</a>
+        <a href="/#guide">一周观影取舍顺序</a>
+        <a href="/#faq">修复规格常见问答</a>
+        <a href="/#rank">本周口碑榜</a>
+      </div>
+      <div class="footer-col">
+        <h3>参与</h3>
+        <a href="/#submit">老片修复投稿</a>
+        <a href="/#comments">观众评论</a>
+        <a href="/#news">片源与规则动态</a>
+        <a href="/#related">相关方向索引</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>条目信息为示例数据，片源规格、折扣价格与更新排期以各平台实际页面为准。</span>
+      <span>数据核对时间：2026-11-08</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  // 移动端菜单
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('mainNav');
+  var overlay = document.getElementById('overlay');
+
+  function closeNav(){
+    nav.classList.remove('open');
+    overlay.classList.remove('show');
+    burger.setAttribute('aria-expanded','false');
+  }
+  function openNav(){
+    nav.classList.add('open');
+    overlay.classList.add('show');
+    burger.setAttribute('aria-expanded','true');
+  }
+  if(burger){
+    burger.addEventListener('click', function(){
+      if(nav.classList.contains('open')){ closeNav(); } else { openNav(); }
+    });
+  }
+  if(overlay){ overlay.addEventListener('click', closeNav); }
+  nav.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.innerWidth <= 860){ closeNav(); }
+    });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){ closeNav(); }
+  });
+  window.addEventListener('resize', function(){
+    if(window.innerWidth > 860){ closeNav(); }
+  });
+
+  // 分类筛选
+  var filterBar = document.getElementById('pickFilter');
+  var grid = document.getElementById('pickGrid');
+  var empty = document.getElementById('filterEmpty');
+  if(filterBar && grid){
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.pick-card'));
+    filterBar.addEventListener('click', function(e){
+      var btn = e.target.closest('button');
+      if(!btn) return;
+      filterBar.querySelectorAll('button').forEach(function(b){ b.classList.remove('on'); });
+      btn.classList.add('on');
+      var cat = btn.getAttribute('data-cat');
+      var visible = 0;
+      cards.forEach(function(card){
+        var ok = (cat === 'all') || (card.getAttribute('data-cat') === cat);
+        card.style.display = ok ? '' : 'none';
+        if(ok) visible++;
+      });
+      if(empty){ empty.style.display = visible ? 'none' : 'block'; }
+    });
+  }
+
+  // 本地搜索（条目名 / 看点 / 标签）
+  var searchInput = document.getElementById('siteSearch');
+  var searchBtn = document.getElementById('searchBtn');
+  function doSearch(){
+    var q = (searchInput.value || '').trim().toLowerCase();
+    if(!q){ return; }
+    var targets = document.querySelectorAll('#pickGrid .pick-card, #updates .update-item, #news .news-item, #rank .rank-item');
+    var hit = null;
+    targets.forEach(function(el){
+      var txt = el.textContent.toLowerCase();
+      if(!hit && txt.indexOf(q) !== -1){ hit = el; }
+    });
+    if(hit){
+      hit.scrollIntoView({behavior:'smooth', block:'center'});
+      hit.style.transition = 'background .3s';
+      var old = hit.style.background;
+      hit.style.background = '#fff1e7';
+      setTimeout(function(){ hit.style.background = old || ''; }, 1600);
+    } else {
+      if(searchInput){
+        searchInput.value = '';
+        searchInput.placeholder = '未找到，换个条目名';
+        setTimeout(function(){ searchInput.placeholder = '搜索条目名'; }, 2200);
+      }
+    }
+  }
+  if(searchBtn){ searchBtn.addEventListener('click', doSearch); }
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ doSearch(); }
+    });
+  }
+
+  // 回到顶部
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > window.innerHeight * 0.9){
+      toTop.classList.add('show');
+    } else {
+      toTop.classList.remove('show');
+    }
+  }, {passive:true});
+  if(toTop){
+    toTop.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  }
+
+  // 导航高亮
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.main-nav a'));
+  var sections = navLinks.map(function(a){
+    var id = a.getAttribute('href').replace('/#','');
+    return document.getElementById(id);
+  });
+  function highlight(){
+    var pos = window.scrollY + 140;
+    var current = 0;
+    sections.forEach(function(sec, i){
+      if(sec && sec.offsetTop <= pos){ current = i; }
+    });
+    navLinks.forEach(function(a, i){
+      a.classList.toggle('active', i === current);
+    });
+  }
+  window.addEventListener('scroll', highlight, {passive:true});
+  highlight();
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"福利社zxfuli",
+  "description":"聚合限时免费片单、4K 修复老片、导演剪辑版、连载番剧更新与会员折扣情报的条目索引。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"4K 修复版和普通高清版画质差多少？",
+      "acceptedAnswer":{"@type":"Answer","text":"差别主要在扫描规格和颗粒处理。原始底片 4K 扫描的版本，暗部层次和胶片颗粒保留完整，投影到大屏时差距明显；基于数字母带做的 2K 修复，在手机和平板上几乎看不出区别。"}
+    },
+    {
+      "@type":"Question",
+      "name":"限免到期后还能免费看吗？",
+      "acceptedAnswer":{"@type":"Answer","text":"多数修复片首轮限免结束后转为会员专享，回到免费的概率低。少数与影展联动的条目会二次限免，间隔约 3 至 6 个月。"}
+    },
+    {
+      "@type":"Question",
+      "name":"年卡 6.8 折比季卡 5.2 折算下来更便宜吗？",
+      "acceptedAnswer":{"@type":"Answer","text":"按日均算季卡更低：季卡折后 35.4 元覆盖 90 天，日均约 0.39 元；年卡折后 176 元覆盖 365 天，日均约 0.48 元。年卡的优势是锁价一年。"}
+    },
+    {
+      "@type":"Question",
+      "name":"《雾港渔灯》第二季非会员能看几集？",
+      "acceptedAnswer":{"@type":"Answer","text":"首集免费，第 2 集起为会员专享。会员可抢先看两集，全季共 12 集，每周四更新一集。"}
+    },
+    {
+      "@type":"Question",
+      "name":"导演剪辑版多出来的内容一般是什么？",
+      "acceptedAnswer":{"@type":"Answer","text":"多为院线版因时长压缩删掉的支线段落。《回声谷》导演剪辑版多出 27 分钟，集中在山谷巡线的三段支线，分级也从 12+ 调整为 16+。"}
+    },
+    {
+      "@type":"Question",
+      "name":"短片集为什么有时会整体下架？",
+      "acceptedAnswer":{"@type":"Answer","text":"合集授权通常按打包周期签订，到期后版权方可能选择拆分单片单独上架，或整体撤回。《七个房间》的合集授权到 2027 年 3 月。"}
+    }
+  ]
+}
+</script>
+</body>
+  </html>
